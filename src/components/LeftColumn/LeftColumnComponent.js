@@ -1,10 +1,10 @@
 import React from 'react';
 import WeatherImage from './DayInfo/WeatherImage';
 import Switcher from './Switcher';
-import WeatherInfoDay from './DayInfo/Weather_Info_Day';
-import WeekInfo from './WeekInfo/Week_Info';
+import WeatherInfoDay from './DayInfo/WeatherInfoDay';
+import WeekInfo from './WeekInfo/WeekInfo';
 
-const Left_Column_Component = () => {
+const LeftColumnComponent = () => {
   return (
     <div className='LeftColumn'>
       <div className='LeftHeader'> 
@@ -23,4 +23,4 @@ const Left_Column_Component = () => {
   )
 }
 
-export default Left_Column_Component
+export default LeftColumnComponent

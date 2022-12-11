@@ -1,8 +1,8 @@
 import './App.css';
 import './style/LeftColumn.css';
 import './style/RightColumn.css';
-import LeftColumnComponent from './components/LeftColumn/Left_Column_Component';
-import RightColumnComponent from './components/RightColumn/Right_Column_Component';
+import LeftColumnComponent from './components/LeftColumn/LeftColumnComponent';
+import RightColumnComponent from './components/RightColumn/RightColumnComponent';
 
 const App = () => {
   return (
