@@ -5,6 +5,10 @@ const Switcher = () => {
     <label className='Switcher'>
       <input type="checkbox"></input>
       <span className="slider round"></span>
+      <div className='CFcontainer'>
+        <span>C</span>
+        <span>F</span>
+      </div>
     </label>
   )
 }

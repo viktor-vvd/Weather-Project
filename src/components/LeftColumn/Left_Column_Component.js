@@ -1,23 +1,23 @@
 import React from 'react';
-import Weather_Image from './DayInfo/Weather_Image';
+import WeatherImage from './DayInfo/WeatherImage';
 import Switcher from './Switcher';
-import Weather_Info_Day from './DayInfo/Weather_Info_Day';
-import Week_Info from './WeekInfo/Week_Info';
+import WeatherInfoDay from './DayInfo/Weather_Info_Day';
+import WeekInfo from './WeekInfo/Week_Info';
 
 const Left_Column_Component = () => {
   return (
-    <div className='Left_Column'>
-      <div className='Left_Header'> 
-        <Weather_Image/>
+    <div className='LeftColumn'>
+      <div className='LeftHeader'> 
+        <WeatherImage/>
         <Switcher/>
       </div>
 
-      <div className='Left_Content'>
-        <Weather_Info_Day/>
+      <div className='LeftContent'>
+        <WeatherInfoDay/>
       </div>
 
-      <div className='Left_Content'>
-        <Week_Info/>
+      <div className='LeftContent'>
+        <WeekInfo/>
       </div>
     </div>
   )
