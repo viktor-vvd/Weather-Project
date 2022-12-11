@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import './style/LeftColumn.css';
+import './style/RightColumn.css';
+import Left_Column_Component from './components/LeftColumn/Left_Column_Component';
+import Right_Column_Component from './components/RightColumn/Right_Column_Component';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
+    <div className='App'>
+      <div className='App-content'>
+        <Left_Column_Component />
+        <Right_Column_Component />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,7 @@
+.Right_Column{
+    min-height: 100vh;
+    display: flex;
+    flex: 4;
+    background-color: rgba(214, 214, 214, 0.1);
+    ;
+}

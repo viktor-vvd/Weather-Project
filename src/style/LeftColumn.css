@@ -1,0 +1,5 @@
+.Left_Column{
+    min-height: 100vh;
+    display: flex;
+    flex: 6;
+}
