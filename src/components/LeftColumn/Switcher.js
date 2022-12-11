@@ -2,7 +2,10 @@ import React from 'react'
 
 const Switcher = () => {
   return (
-    <div>Switcher</div>
+    <label className='Switcher'>
+      <input type="checkbox"></input>
+      <span className="slider round"></span>
+    </label>
   )
 }
 

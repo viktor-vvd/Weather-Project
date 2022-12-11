@@ -14,6 +14,9 @@ const Left_Column_Component = () => {
 
       <div className='Left_Content'>
         <Weather_Info_Day/>
+      </div>
+
+      <div className='Left_Content'>
         <Week_Info/>
       </div>
     </div>
