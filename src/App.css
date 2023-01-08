@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /*   text-align: center; */
 }
 
 .App-logo {
@@ -19,10 +19,24 @@
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.content {
+  display: block;
+  width: 90%;
 }
 

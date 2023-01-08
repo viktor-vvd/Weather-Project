@@ -1,36 +1,37 @@
-.LeftColumn {
+.left-column {
     min-height: 100vh;
     display: flex;
     flex: 6;
-    display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.LeftHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+/* .LeftContent:nth-child(2) {
+    max-height: 441px;
+    height: 47%;
+    min-height: 277px;
+} */
+
+/* Start LeftHeader */
+.left-header {
     height: 100px;
-    width: 90%;
 }
 
-.WeatherImage {
+#weather-image {
     height: 100%;
 }
 
-.Switcher {
+.switcher {
     position: relative;
     display: inline-block;
     width: 120px;
     height: 50px;
 }
 
-.CFcontainer{
+.C-F-container {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -43,9 +44,9 @@
     width: 100%;
 }
 
-.CFcontainer span{
+.C-F-container span {
     display: block;
-    font-family: 'Inter', sans-serif;;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 28px;
@@ -53,13 +54,12 @@
     color: #FFFFFF;
 }
 
-.Switcher input {
+.switcher input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -86,25 +86,241 @@
     transition: .4s;
 }
 
-.Switcher input:checked+.slider {
+.switcher input:checked+.slider {
     background: rgba(255, 255, 255, 0.16);
 }
 
-.Switcher input:checked+.slider:before {
+.switcher input:checked+.slider:before {
     content: "";
     -webkit-transform: translateX(55px);
     -ms-transform: translateX(55px);
     transform: translateX(55px);
 }
 
-/* Rounded sliders */
 .slider.round {
     border-radius: 100px;
 }
+/* End LeftHeader */
 
-
-
-.LeftContent {
+/* Start WeatherInfoDay */
+.weather-info-day {
+    width: 100%;
+    height: 441px;
     display: flex;
-    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.weather-info-day .temperature {
+    position: relative;
+    min-width: 262px;
+    height: 157px;
+}
+
+.weather-info-day .temperature .temp-value {
+    position: absolute;
+    height: 157px;
+    left: 0;
+    bottom: 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 164px;
+    line-height: 197px;
+    letter-spacing: 0.025em;
+}
+
+.weather-info-day .temperature div {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 62px;
+    height: 99px;
+}
+
+.weather-info-day .temperature div .temp-degree {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.05em;
+}
+
+.weather-info-day .temperature div .temp-measurement {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 84px;
+    letter-spacing: -0.05em;
+}
+
+.weather-info-day .date {
+    min-width: 213px;
+    height: 38px;
+}
+
+.weather-info-day .date span {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 120%;
+}
+
+.weather-info-day .day-of-week-time {
+    min-width: 360px;
+    height: 47px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+}
+
+.weather-info-day .day-of-week-time #day-of-week {
+    display: block;    
+    font-size: 36px;
+}
+
+.weather-info-day .day-of-week-time #time {
+    display: block;
+    font-size: 50px;
+    letter-spacing: 0.025em;
+}
+
+.weather-info-day .details{
+    min-width: 193px;
+    width: 84%;
+    max-width: 579px;    
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.weather-info-day .details img{
+    display: block;
+    height: 22px;
+}
+
+.weather-info-day .details span{
+    display: block;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 26px;
+}
+/* End WeatherInfoDay */
+
+/* Start WeekInfo */
+.week-info{
+    width: 100%;
+    height: 210px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.week-info #left-arrow{
+    width: 0px;
+    display: none;
+    opacity: 0;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.week-info #right-arrow{
+    width: 109px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.week-info #cards-container{
+/*     max-width: 130px;
+ */    
+    height: 210px;
+    flex: 2 158px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6.2%;
+    padding:14px;
+    padding-bottom: 8px;
+    overflow: hidden; 
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.day-info-card {
+    display: flex;
+    width: 130px;
+    height: 210px;
+    background: rgba(214, 214, 214, 0.4);
+    box-shadow: 3px -2px 14px -1px rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition-property: all;
+    transition-duration: 1s;
+}  
+
+.hidden {
+    opacity: 0;
+    width: 0px;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+.non-displayed{
+    display: none;
+}
+
+.day-info-card div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    overflow: hidden;
+}    
+
+.day-info-card img{
+    width: 80px;
 }
