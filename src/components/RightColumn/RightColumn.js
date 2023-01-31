@@ -1,44 +1,44 @@
-import React from 'react'
-import Location from './Location/Location';
-import MoreButton from './Location/MoreButton';
-import SunriseSunset from './SunriseSunset';
-import Humidity from './AdditionalInfo/Humidity';
-import ChanceofRain from './AdditionalInfo/ChanceofRain';
-import AirQuailty from './AdditionalInfo/AirQuailty';
-import WindSpeed from './AdditionalInfo/WindSpeed';
+import React from "react";
+import Location from "./Location/Location";
+import MoreButton from "./Location/MoreButton";
+import SunriseSunset from "./SunriseSunset";
+import Cloudiness from "./AdditionalInfo/Cloudiness";
+import WindDir from "./AdditionalInfo/WindDir";
+import AirPollution from "./AdditionalInfo/AirPollution";
+import WindGust from "./AdditionalInfo/WindGust";
 
-
-const RightColumnComponent = () => {
+const RightColumnComponent = ({ weatherData, airData, measurement }) => {
   return (
-    <div className='right-column'>
-      <div className='right-header header'>
-        <Location />
+    <div className="right-column">
+      <div className="right-header header">
+        <Location city={weatherData.name} country={weatherData.sys.country} />
         <MoreButton />
       </div>
 
-      <div className='right-content'>
-        <SunriseSunset type="Sunrise" hour="7" minute="30" meridiem="AM" />
-        <SunriseSunset type="Sunset" hour="5" minute="45" meridiem="PM" />
+      <div className="right-content">
+        <SunriseSunset type="Sunrise" time={weatherData.sys.sunrise} />
+        <SunriseSunset type="Sunset" time={weatherData.sys.sunset} />
       </div>
 
-      <div className='content'>
-        <div className='line'></div>
-        <div className='info'>
+      <div className="content">
+        <div className="line"></div>
+        <div className="info">
           <span>i</span>
         </div>
       </div>
 
-      <div className='content'>
-        <Humidity humidity="38" />
-        <ChanceofRain chance="2" />
+      <div className="content">
+        <Cloudiness cloudiness={weatherData.clouds.all} />
+        <WindDir dir={weatherData.wind.deg} />
       </div>
 
-      <div className='content'>
-        <AirQuailty airquality="3" />
-        <WindSpeed windspeed="3.8" />
+      <div className="content">
+        {/*       <AirPollution airPollution={airData} /> */}
+        <AirPollution airData={airData} />
+        <WindGust windGust={weatherData.wind.gust} measurement={measurement} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RightColumnComponent
+export default RightColumnComponent;

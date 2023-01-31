@@ -1,15 +1,19 @@
-import React from 'react'
+import React from "react";
 
-const Temperature = (props) => {
-    return (
-        <div className='temperature'>
-            <span className='temp-value'>{props.temp_value}</span>
-            <div>
-                <span className='temp-degree'>o</span>
-                <span className='temp-measurement'>{props.temp_measurement}</span>
-            </div>
-        </div>
-    )
-}
+const Temperature = ({ temp_value, measurement }) => {
+  return (
+    <div className="temperature">
+      <span className="temp-value">{Math.round(temp_value)}</span>
+      <div>
+        <span className="temp-degree">o</span>
+        {measurement ? (
+          <span className="temp-measurement">F</span>
+        ) : (
+          <span className="temp-measurement">C</span>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default Temperature
+export default Temperature;

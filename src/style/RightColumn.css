@@ -169,8 +169,9 @@
     text-align: center;
 }
 
-.sunrise-sunset .card img {
+.sunrise-sunset .card svg {
     width: 90px;
+    height: 90px;
 }
 
 /* End sunrise-sunset */

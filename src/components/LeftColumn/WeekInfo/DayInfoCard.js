@@ -1,18 +1,21 @@
 import React from 'react'
+import moment from 'moment';
 
-const DayInfoCard = React.forwardRef((props, ref) => (
-  <div className='day-info-card' ref={ref}>
+const DayInfoCard = ({tempValue, measurement, weatherPic, time}) => (
     <div>
       <span>
-        <span id='temp-value'>{props.tempValue}</span>
+        <span id='temp-value'>{Math.round(tempValue)}</span>
         <span>°</span>
-        <span id='temp-measurement'>{props.tempMeasurement}</span>
+        {measurement ? (
+          <span className="temp-measurement">F</span>
+        ) : (
+          <span className="temp-measurement">C</span>
+        )}
       </span>
-      <img src={props.weatherPic} alt='Pic' />
-      <span id='day-of-week'>{props.dayofWeek}</span>
+      <img src={"http://openweathermap.org/img/wn/" + weatherPic + "@2x.png"} alt='Pic' />
+      <span id='day-of-week'>{moment.unix(time).format("hh:mm A")}</span>
     </div>
-  </div>
-));
+);
 
 export default DayInfoCard
 

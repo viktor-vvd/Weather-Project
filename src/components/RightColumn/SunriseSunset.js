@@ -1,14 +1,14 @@
 import React from 'react'
-import Sunset from './../../images/Sunset.svg';
-import Sunrise from './../../images/Sunrise.svg';
+import { WiSunrise, WiSunset } from "react-icons/wi";
+import moment from 'moment';
 
 const SunriseSunset = (props) => {
 
   function ShowPic() {
     if (props.type === "Sunrise") {
-      return <img src={Sunrise} alt='Sunrise' />
+      return <WiSunrise />
     }
-    return <img src={Sunset} alt='Sunset' />
+    return <WiSunset />
   }
 
   return (
@@ -16,13 +16,13 @@ const SunriseSunset = (props) => {
       <span className='type'>{props.type}</span>
       <div className='card'>
         <div className='clock'>
-          <span className="hour" style={{ transform: 'rotate(' + props.hour * 30 + 'deg)' }}></span>
-          <span className="minute" style={{ transform: 'rotate(' + props.minute * 6 + 'deg)' }}></span>
+          <span className="hour" style={{ transform: 'rotate(' + moment.unix(props.time).format("hh") * 30 + 'deg)' }}></span>
+          <span className="minute" style={{ transform: 'rotate(' + moment.unix(props.time).format("mm") * 6 + 'deg)' }}></span>
           <span className="dot"></span>
         </div>
         <div className='time'>
-          <span>{props.hour}:{props.minute}</span>
-          <span> {props.meridiem}</span>
+          <span>{moment.unix(props.time).format("hh")}:{moment.unix(props.time).format("mm")}</span>
+          <span> {moment.unix(props.time).format("A")}</span>
         </div>
         <ShowPic />
       </div>

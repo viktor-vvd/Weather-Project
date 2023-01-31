@@ -1,25 +1,32 @@
-import React from 'react'
-import Temperature from './Temperature';
-import Details from './Details';
+import React from "react";
+import Temperature from "./Temperature";
+import Details from "./Details";
+import moment from "moment";
 
-const WeatherInfoDay = () => {
+const WeatherInfoDay = ({ weatherData, measurement }) => {
   return (
-    <div className='weather-info-day'>
-      <Temperature temp_value="25" temp_measurement="C"/>
+    <div className="weather-info-day">
+      <Temperature
+        temp_value={weatherData.main.temp}
+        measurement={measurement}
+      />
 
-      <div className='date'>
-        <span id="date">14th Mar 22</span>
+      <div className="date">
+        <span id="date">{moment().format("Do MMM YY")}</span>
+      </div>
+      <div className="day-of-week-time">
+        <span className="day-of-week">{moment().format("dddd")}</span>
+        <span className="time">{moment().format("h:mm A")}</span>
       </div>
 
-      <div className='day-of-week-time'>
-        <span id="day-of-week">Monday</span>
-        <span id="time">10:40 AM</span>
-      </div>
-
-      <Details wind="10" humidity="54" rain="0.2"/>
-      
+      <Details
+        wind={weatherData.wind.speed}
+        humidity={weatherData.main.humidity}
+        pressure={weatherData.main.pressure}
+        measurement={measurement}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default WeatherInfoDay
+export default WeatherInfoDay;
