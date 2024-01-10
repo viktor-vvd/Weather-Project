@@ -7,22 +7,21 @@ import WeekInfo from "./WeekInfo/WeekInfo";
 const LeftColumn = ({
   weatherData,
   forecastData,
-  measurement,
-  setMeasurement,
+  /* setMeasurement, */
 }) => {
   return (
     <div className="left-column">
       <div className="left-header header">
         <WeatherImage icon={weatherData.weather[0].icon} />
-        <Switcher measurement={measurement} setMeasurement={setMeasurement} />
+        <Switcher /* measurement={measurement} setMeasurement={setMeasurement} */ />
       </div>
 
       <div className="content">
-        <WeatherInfoDay weatherData={weatherData} measurement={measurement} />
+        <WeatherInfoDay weatherData={weatherData} />
       </div>
 
       <div className="content">
-        <WeekInfo forecastData={forecastData} measurement={measurement} />
+        <WeekInfo forecastData={forecastData} />
       </div>
     </div>
   );

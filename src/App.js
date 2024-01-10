@@ -4,14 +4,16 @@ import "./style/LeftColumn.css";
 import "./style/RightColumn.css";
 import LeftColumn from "./components/LeftColumn/LeftColumn";
 import RightColumn from "./components/RightColumn/RightColumn";
+import { useSelector } from "react-redux";
 
 const App = () => {
   const [lat, setLat] = useState(50.7595);
   const [long, setLong] = useState(25.3054);
   const [data, setData] = useState([]);
   const [forecastData, setForecast] = useState(null);
-  const [measurement, setMeasurement] = useState(false);
+/*   const [measurement, setMeasurement] = useState(false);*/  
   const [airData, setAirData] = useState();
+  const measurement = useSelector((state) => state.measurement.measurement);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -98,13 +100,13 @@ const App = () => {
           <LeftColumn
             weatherData={data}
             forecastData={forecastData}
-            measurement={measurement}
-            setMeasurement={setMeasurement}
+            /* measurement={measurement} 
+            setMeasurement={setMeasurement}*/
           />
           <RightColumn
             weatherData={data}
             airData={airData}
-            measurement={measurement}
+            /* measurement={measurement} */
           />
         </div>
       ) : (

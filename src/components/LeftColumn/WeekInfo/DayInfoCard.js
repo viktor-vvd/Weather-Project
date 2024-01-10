@@ -1,10 +1,14 @@
-import React from 'react'
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
+import { useSelector } from "react-redux";
 
-const DayInfoCard = ({tempValue, measurement, weatherPic, time}) => (
+const DayInfoCard = ({ tempValue, weatherPic, time }) => {
+  const measurement = useSelector((state) => state.measurement.measurement);
+
+  return (
     <div>
       <span>
-        <span id='temp-value'>{Math.round(tempValue)}</span>
+        <span id="temp-value">{Math.round(tempValue)}</span>
         <span>°</span>
         {measurement ? (
           <span className="temp-measurement">F</span>
@@ -12,12 +16,16 @@ const DayInfoCard = ({tempValue, measurement, weatherPic, time}) => (
           <span className="temp-measurement">C</span>
         )}
       </span>
-      <img src={"http://openweathermap.org/img/wn/" + weatherPic + "@2x.png"} alt='Pic' />
-      <span id='day-of-week'>{moment.unix(time).format("hh:mm A")}</span>
+      <img
+        src={"http://openweathermap.org/img/wn/" + weatherPic + "@2x.png"}
+        alt="Pic"
+      />
+      <span id="day-of-week">{moment.unix(time).format("hh:mm A")}</span>
     </div>
-);
+  );
+};
 
-export default DayInfoCard
+export default DayInfoCard;
 
 /* import React, { useState }  from 'react';
 import Rain from './../../../images/Rain.svg';

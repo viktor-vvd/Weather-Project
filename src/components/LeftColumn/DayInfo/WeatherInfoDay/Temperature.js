@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const Temperature = ({ temp_value, measurement }) => {
+const Temperature = ({ temp_value }) => {
+  const measurement = useSelector((state) => state.measurement.measurement);
+
   return (
     <div className="temperature">
       <span className="temp-value">{Math.round(temp_value)}</span>

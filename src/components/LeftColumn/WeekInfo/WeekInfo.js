@@ -6,7 +6,7 @@ import RightArrow from "./../../../images/RightArrow.svg";
 import DayInfoCard from "./DayInfoCard";
 import "swiper/css";
 
-const WeekInfo = ({ forecastData, measurement }) => {
+const WeekInfo = ({ forecastData }) => {
 
   return (
     <div className="week-info">
@@ -32,7 +32,6 @@ const WeekInfo = ({ forecastData, measurement }) => {
               <DayInfoCard
                 key={index}
                 tempValue={item.main.temp}
-                measurement={measurement}
                 weatherPic={item.weather[0].icon}
                 time={item.dt}
               />

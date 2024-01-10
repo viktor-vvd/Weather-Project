@@ -1,7 +1,10 @@
 import React from "react";
 import Wind from "./../../../images/WindSpeed.svg";
+import { useSelector } from "react-redux";
 
-const WindGust = ({ windGust, measurement }) => {
+const WindGust = ({ windGust }) => {
+  const measurement = useSelector((state) => state.measurement.measurement);
+
   return (
     <div className="additional-info-block">
       <span>Wind Gust</span>

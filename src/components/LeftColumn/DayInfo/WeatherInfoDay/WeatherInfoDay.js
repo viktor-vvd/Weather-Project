@@ -2,8 +2,11 @@ import React from "react";
 import Temperature from "./Temperature";
 import Details from "./Details";
 import moment from "moment";
+import { useSelector } from "react-redux";
 
-const WeatherInfoDay = ({ weatherData, measurement }) => {
+const WeatherInfoDay = ({ weatherData }) => {
+  const measurement = useSelector((state) => state.measurement.measurement);
+
   return (
     <div className="weather-info-day">
       <Temperature

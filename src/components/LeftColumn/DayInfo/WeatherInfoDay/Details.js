@@ -1,8 +1,11 @@
 import React from "react";
 import VerticalLine from "./../../../../images/VerticalLine.svg";
 import { WiBarometer, WiWindDeg, WiHumidity } from "react-icons/wi";
+import { useSelector } from "react-redux";
 
-const Details = ({ wind, humidity, pressure, measurement }) => {
+const Details = ({ wind, humidity, pressure }) => {
+  const measurement = useSelector((state) => state.measurement.measurement);
+
   return (
     <div className="details">
       <WiWindDeg />

@@ -7,7 +7,7 @@ import WindDir from "./AdditionalInfo/WindDir";
 import AirPollution from "./AdditionalInfo/AirPollution";
 import WindGust from "./AdditionalInfo/WindGust";
 
-const RightColumnComponent = ({ weatherData, airData, measurement }) => {
+const RightColumnComponent = ({ weatherData, airData }) => {
   return (
     <div className="right-column">
       <div className="right-header header">
@@ -33,9 +33,8 @@ const RightColumnComponent = ({ weatherData, airData, measurement }) => {
       </div>
 
       <div className="content">
-        {/*       <AirPollution airPollution={airData} /> */}
         <AirPollution airData={airData} />
-        <WindGust windGust={weatherData.wind.gust} measurement={measurement} />
+        <WindGust windGust={weatherData.wind.gust} />
       </div>
     </div>
   );
