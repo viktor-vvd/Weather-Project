@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import "./assets/styles/index.scss";
+/* import "./App.css";
 import "./style/LeftColumn.css";
-import "./style/RightColumn.css";
+import "./style/RightColumn.css"; 
 import LeftColumn from "./components/LeftColumn/LeftColumn";
-import RightColumn from "./components/RightColumn/RightColumn";
+import RightColumn from "./components/RightColumn/RightColumn"; */
 import { useSelector } from "react-redux";
+import Content from "./components/Content/Content";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = () => {
+  // eslint-disable-next-line
   const [lat, setLat] = useState(50.7595);
+  // eslint-disable-next-line
   const [long, setLong] = useState(25.3054);
-  const [data, setData] = useState([]);
+
+  const [data, setData] = useState(null);
   const [forecastData, setForecast] = useState(null);
-/*   const [measurement, setMeasurement] = useState(false);*/  
+  /*   const [measurement, setMeasurement] = useState(false);*/
   const [airData, setAirData] = useState();
   const measurement = useSelector((state) => state.measurement.measurement);
 
@@ -29,7 +35,6 @@ const App = () => {
             .then((res) => res.json())
             .then((result) => {
               setData(result);
-              console.log(result);
             });
         } else if (measurement) {
           await fetch(
@@ -38,7 +43,6 @@ const App = () => {
             .then((res) => res.json())
             .then((result) => {
               setData(result);
-              console.log(result);
             });
         }
       } catch (err) {
@@ -94,25 +98,35 @@ const App = () => {
   }, [lat, long]);
 
   return (
-    <div className="App">
-      {typeof data.main != "undefined" ? (
-        <div className="App-content">
-          <LeftColumn
-            weatherData={data}
-            forecastData={forecastData}
-            /* measurement={measurement} 
-            setMeasurement={setMeasurement}*/
-          />
-          <RightColumn
-            weatherData={data}
-            airData={airData}
-            /* measurement={measurement} */
-          />
-        </div>
-      ) : (
-        <div>ERROR</div>
-      )}
-    </div>
+    data &&
+    forecastData &&
+    airData && (
+      <main className="container_horizontal main">
+        {forecastData && (
+          <Content weatherData={data} forecastData={forecastData} />
+        )}
+        <Sidebar weatherData={data} airData={airData} />
+      </main>
+    )
+    // <div className="App">
+    //   {typeof data.main != "undefined" ? (
+    //     <div className="App-content">
+    //       <LeftColumn
+    //         weatherData={data}
+    //         forecastData={forecastData}
+    //         /* measurement={measurement}
+    //         setMeasurement={setMeasurement}*/
+    //       />
+    //       <RightColumn
+    //         weatherData={data}
+    //         airData={airData}
+    //         /* measurement={measurement} */
+    //       />
+    //     </div>
+    //   ) : (
+    //     <div>ERROR</div>
+    //   )}
+    // </div>
   );
 };
 

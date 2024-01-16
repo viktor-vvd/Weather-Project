@@ -1,0 +1,67 @@
+.sunrise-sunset {
+    gap: 25px;
+
+    &__card {
+        height: 281px;
+        justify-content: space-around;
+        padding: 10px 18px ;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.25);
+        flex-shrink: 0;
+    }
+
+    &__clock {
+        height: 63px;
+        width: 63px;
+        position: relative;
+
+        .clock {
+
+            &__hour,
+            &__minute {
+                position: absolute;
+                height: 23px;
+                width: 3px;
+                margin: auto;
+                top: -36%;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.48);
+                transform-origin: bottom center;
+                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+                z-index: 1;
+                border-radius: 50%;
+            }
+
+            &__minute {
+                height: 31px;
+                width: 2px;
+                top: -48%;
+                background: rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+                transform: rotate(90deg);
+            }
+
+            &__dot {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                background: white;
+                border: 1px solid white;
+                margin: auto;
+                z-index: 1;
+            }
+        }
+    }
+
+    svg {
+        width: 90px;
+        height: 90px;
+    }
+}

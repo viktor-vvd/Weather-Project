@@ -13,7 +13,8 @@
     "react-icons": "^4.7.1",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
-    "swiper": "^8.4.6",
+    "sass": "^1.69.7",
+    "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
