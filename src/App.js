@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
 import "./assets/styles/index.scss";
-/* import "./App.css";
-import "./style/LeftColumn.css";
-import "./style/RightColumn.css"; 
-import LeftColumn from "./components/LeftColumn/LeftColumn";
-import RightColumn from "./components/RightColumn/RightColumn"; */
 import { useSelector } from "react-redux";
 import Content from "./components/Content/Content";
 import Sidebar from "./components/Sidebar/Sidebar";
@@ -88,7 +83,6 @@ const App = () => {
           .then((res) => res.json())
           .then((result) => {
             setAirData(result.list);
-            /* console.log(result.list[0].main.aqi); */
           });
       } catch (err) {
         console.log("ERROR!");
@@ -108,25 +102,6 @@ const App = () => {
         <Sidebar weatherData={data} airData={airData} />
       </main>
     )
-    // <div className="App">
-    //   {typeof data.main != "undefined" ? (
-    //     <div className="App-content">
-    //       <LeftColumn
-    //         weatherData={data}
-    //         forecastData={forecastData}
-    //         /* measurement={measurement}
-    //         setMeasurement={setMeasurement}*/
-    //       />
-    //       <RightColumn
-    //         weatherData={data}
-    //         airData={airData}
-    //         /* measurement={measurement} */
-    //       />
-    //     </div>
-    //   ) : (
-    //     <div>ERROR</div>
-    //   )}
-    // </div>
   );
 };
 
