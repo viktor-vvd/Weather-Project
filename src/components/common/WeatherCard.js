@@ -19,7 +19,11 @@ const WeatherCard = ({ tempValue, icon, time }) => {
           alt="Pic"
         />
         <span className="subtitle weather-card__time">
-          {moment.unix(time).format("hh:mm A")}
+          {moment.unix(time).format(measurement ? "HH:mm" : "hh:mm")}
+          {measurement&&(<span className="text_light">
+            {" "}
+            {moment.unix(time).format("A")}
+          </span>)}
         </span>
       </div>
     </swiper-slide>

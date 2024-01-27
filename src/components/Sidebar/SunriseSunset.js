@@ -1,6 +1,7 @@
 import React from "react";
 import { WiSunrise, WiSunset } from "react-icons/wi";
 import moment from "moment";
+import { useSelector } from "react-redux";
 
 const SunriseSunset = ({type, time}) => {
   function ShowPic() {
@@ -9,6 +10,8 @@ const SunriseSunset = ({type, time}) => {
     }
     return <WiSunset />;
   }
+
+  const measurement = useSelector((state) => state.measurement.measurement);
 
   return (
     <div className="container_vertical sunrise-sunset">
@@ -32,12 +35,11 @@ const SunriseSunset = ({type, time}) => {
           <span className="clock__dot"></span>
         </div>
         <span className="title sunrise-sunset__time">
-          {moment.unix(time).format("hh")}:
-          {moment.unix(time).format("mm")}
-          <span className="text_light">
+          {moment.unix(time).format(measurement ? "hh:mm" : "HH:mm")}
+          {measurement&&(<span className="text_light">
             {" "}
             {moment.unix(time).format("A")}
-          </span>
+          </span>)}
         </span>
         <ShowPic />
       </div>
