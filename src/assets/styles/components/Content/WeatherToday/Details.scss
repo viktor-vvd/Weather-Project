@@ -1,0 +1,22 @@
+.details {
+    gap: 20px;
+    padding-top: 27px;
+
+    &__item {
+        gap: 15px;
+    }
+
+    &__title {
+        gap: 7px;
+
+    }
+
+    svg {
+        height: 30px;
+        width: auto;
+    }
+    img {
+        height: 22px;
+        width: auto;
+    }
+}

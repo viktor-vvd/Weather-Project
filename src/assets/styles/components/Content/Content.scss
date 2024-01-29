@@ -1,0 +1,27 @@
+.content{
+    align-items: flex-start;
+    flex: 6;
+    max-width: 60%;
+    min-height: 100vh;
+    gap:25px;
+    padding-left: 30px;
+
+    //1920px
+    // align-items: flex-start;
+    // justify-content: space-around;
+    // padding: 20px 50px;
+    // padding-left: 30px;
+
+    
+    &_header{
+        width: 100%;
+        /* padding-bottom: 20px; */
+        padding-left: 20px;
+
+        .icon_actual{
+            width: auto;
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+}

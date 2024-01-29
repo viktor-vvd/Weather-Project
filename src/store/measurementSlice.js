@@ -7,8 +7,8 @@ const measurementSlice = createSlice({
   },
   reducers: {
     changeMeasurement(state, action) {
-      console.log(state);
-      console.log(action);
+      /* console.log(state);
+      console.log(action); */
       state.measurement = !action.payload.measurement;
     },
   },

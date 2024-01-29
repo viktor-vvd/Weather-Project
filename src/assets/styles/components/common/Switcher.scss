@@ -1,0 +1,56 @@
+.switcher {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+
+    &__value {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
+
+        span {
+            display: block;
+        }
+    }
+
+    &__checkbox {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked+.switcher__toggle:before {
+            transform: translateX(55px);
+        }
+    }
+
+    &__toggle {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(196, 196, 196, 0.25);
+        transition: all .4s ease-in-out;
+        border-radius: 100px;
+
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 50px;
+            width: 65px;
+            left: 0px;
+            bottom: 0px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 40px;
+            background: rgba(196, 196, 196, 0.25);
+            transition: all .4s ease-in-out;
+        }
+    }
+}

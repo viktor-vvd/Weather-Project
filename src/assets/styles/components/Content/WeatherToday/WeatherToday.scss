@@ -1,0 +1,83 @@
+.weather-today {
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 29px;
+    padding-left: 20px;
+
+    .weather-today {
+        &__temp {
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 13px;
+
+            .temp {
+                &__value {
+                    font-weight: 100;
+                    font-size: 164px;
+                    letter-spacing: 4.1px;
+                }
+
+                &__measurement {
+                    position: relative;
+                    right: 0;
+                    top: 0;
+                    width: 62px;
+                    height: 99px;
+
+                    .measurement {
+                        &__degree {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            font-size: 32px;
+                            font-weight: 400;
+                            letter-spacing: -1.6px;
+                        }
+
+                        &__symbol {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            font-size: 70px;
+                            font-weight: 400;
+                            letter-spacing: normal;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__date {
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 36px;
+
+            .date {
+                &__full-date {
+                    font-size: 40px;
+                    letter-spacing: normal;
+                }
+
+                &__time {
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 17px;
+
+                    .day {
+                        font-size: 36px;
+                        letter-spacing: normal;
+                    }
+
+                    .time {
+                        font-size: 50px;
+                        letter-spacing: normal;
+                        letter-spacing: 1.25px;
+                    }
+                }
+            }
+        }
+    }
+}
