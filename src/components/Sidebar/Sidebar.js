@@ -8,10 +8,21 @@ import AdditionalInfo from "../common/AdditionalInfo";
 function Sidebar({ weatherData, airData }) {
   return (
     <div className="container_outer container_vertical sidebar">
-      <Location city={weatherData.name} country={weatherData.sys.country} />
+      <Location
+        city={weatherData.data.name}
+        country={weatherData.data.sys.country}
+      />
       <div className="container_horizontal sidebar__sunrise-sunset">
-        <SunriseSunset type="Sunrise" time={weatherData.sys.sunrise} />
-        <SunriseSunset type="Sunset" time={weatherData.sys.sunset} />
+        <SunriseSunset
+          type="Sunrise"
+          time={weatherData.data.sys.sunrise}
+          imperial={weatherData.imperial}
+        />
+        <SunriseSunset
+          type="Sunset"
+          time={weatherData.data.sys.sunset}
+          imperial={weatherData.imperial}
+        />
       </div>
       <div className="container_horizontal sidebar__divider">
         <hr />
@@ -27,23 +38,23 @@ function Sidebar({ weatherData, airData }) {
       <div className="sidebar__additional-info">
         <AdditionalInfo
           title="Cloudiness"
-          value={weatherData.clouds.all}
-          measurements={{ metric: "%" }}
+          value={weatherData.data.clouds.all}
+          measurement={"%"}
         />
         <AdditionalInfo
           title="Wind Direction"
-          value={weatherData.wind.deg}
-          measurements={{ metric: "\u00b0" }}
+          value={weatherData.data.wind.deg}
+          measurement={"\u00b0"}
         />
         <AdditionalInfo
           title="Air Pollution"
-          value={airData[0].main.aqi}
-          measurements={{ metric: "/5" }}
+          value={airData.data[0].main.aqi}
+          measurement={"/5"}
         />
         <AdditionalInfo
           title="Wind Gust"
-          value={weatherData.wind.gust}
-          measurements={{ metric: " m/s", imperial: " mph" }}
+          value={weatherData.data.wind.gust}
+          measurement={weatherData.imperial ? " m/s" : " mph"}
           icon={Wind}
         />
       </div>

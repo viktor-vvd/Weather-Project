@@ -1,16 +1,16 @@
 import React from "react";
 import moment from "moment";
-import { useSelector } from "react-redux";
+/* import { useSelector } from "react-redux"; */
 
-const WeatherCard = ({ tempValue, icon, time }) => {
-  const measurement = useSelector((state) => state.measurement.measurement);
+const WeatherCard = ({ tempValue, icon, time, imperial }) => {
+  /* const measurement = useSelector((state) => state.measurement.measurement); */
 
   return (
     <swiper-slide class="container_vertical weather-card__container">
       <div className="container_vertical weather-card">
         <span className="weather-card__temp">
           <span className="subtitle">
-            {Math.round(tempValue)+"\u00b0"+(measurement ? "F" : "C")}
+            {Math.round(tempValue) + "\u00b0" + (imperial ? "F" : "C")}
           </span>
         </span>
         <img
@@ -19,11 +19,10 @@ const WeatherCard = ({ tempValue, icon, time }) => {
           alt="Pic"
         />
         <span className="subtitle weather-card__time">
-          {moment.unix(time).format(measurement ? "HH:mm" : "hh:mm")}
-          {measurement&&(<span className="text_light">
-            {" "}
-            {moment.unix(time).format("A")}
-          </span>)}
+          {moment.unix(time).format(imperial ? "HH:mm" : "hh:mm")}
+          {imperial && (
+            <span className="text_light"> {moment.unix(time).format("A")}</span>
+          )}
         </span>
       </div>
     </swiper-slide>

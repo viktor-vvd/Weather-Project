@@ -69,13 +69,14 @@ const Forecast = ({ forecastData }) => {
         <img ref={prevRef} src={LeftArrow} alt="previous" />
       </div>
       <swiper-container class="forecast__slider" init="false" ref={swiperElRef}>
-        {forecastData &&
-          forecastData.map((item, index) => (
+        {forecastData.data &&
+          forecastData.data.map((item, index) => (
             <DayInfoCard
               key={index}
               tempValue={item.main.temp}
               icon={item.weather[0].icon}
               time={item.dt}
+              imperial={forecastData.imperial}
             />
           ))}
       </swiper-container>

@@ -1,11 +1,9 @@
 import React from "react";
 import VerticalLine from "./../../../images/VerticalLine.svg";
 import { WiBarometer, WiWindDeg, WiHumidity } from "react-icons/wi";
-import { useSelector } from "react-redux";
+/* import { useSelector } from "react-redux"; */
 
-const Details = ({ wind, humidity, pressure }) => {
-  const measurement = useSelector((state) => state.measurement.measurement);
-
+const Details = ({ wind, humidity, pressure, imperial }) => {
   return (
     <div className="container_horizontal details">
       <div className="container_horizontal details__item">
@@ -14,7 +12,7 @@ const Details = ({ wind, humidity, pressure }) => {
           <span className="text">Wind</span>
         </div>
         <span className="text">
-          {Math.round(wind * 10) / 10 + " " + (measurement ? "mph" : "m/s")}
+          {Math.round(wind * 10) / 10 + " " + (imperial ? "mph" : "m/s")}
         </span>
       </div>
       <img src={VerticalLine} alt="VerticalLine" />

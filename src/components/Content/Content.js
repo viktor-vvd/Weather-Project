@@ -10,7 +10,7 @@ const Content = ({ weatherData, forecastData }) => {
         <img
           src={
             "http://openweathermap.org/img/wn/" +
-            weatherData.weather[0].icon +
+            weatherData.data.weather[0].icon +
             "@2x.png"
           }
           className="icon_actual"

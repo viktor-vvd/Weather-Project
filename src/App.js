@@ -10,7 +10,7 @@ const App = () => {
   // eslint-disable-next-line
   const [long, setLong] = useState(25.3054);
 
-  const [data, setData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecast] = useState(null);
   /*   const [measurement, setMeasurement] = useState(false);*/
   const [airData, setAirData] = useState();
@@ -23,23 +23,18 @@ const App = () => {
         setLong(position.coords.longitude);
       });*/
       try {
-        if (!measurement) {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setData(result);
-            });
-        } else if (measurement) {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setData(result);
-            });
-        }
+        await fetch(
+          `${
+            process.env.REACT_APP_API_URL
+          }/weather/?lat=${lat}&lon=${long}&units=${
+            measurement ? "imperial" : "metric"
+          }&APPID=${process.env.REACT_APP_API_KEY}`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            setWeatherData({ data: result, imperial: measurement });
+            console.log({ data: result, imperial: measurement });
+          });
       } catch (err) {
         console.log("ERROR!");
       }
@@ -50,23 +45,18 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (!measurement) {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&cnt=8&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setForecast(result.list);
-            });
-        } else if (measurement) {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/forecast?lat=${lat}&lon=${long}&cnt=8&units=imperial&appid=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setForecast(result.list);
-            });
-        }
+        await fetch(
+          `${
+            process.env.REACT_APP_API_URL
+          }/forecast?lat=${lat}&lon=${long}&cnt=8&units=${
+            measurement ? "imperial" : "metric"
+          }&appid=${process.env.REACT_APP_API_KEY}`
+        )
+          .then((res) => res.json())
+          .then((result) => {
+            setForecast({ data: result.list, imperial: measurement });
+            console.log(result.list);
+          });
       } catch (err) {
         console.log("ERROR!");
       }
@@ -82,24 +72,26 @@ const App = () => {
         )
           .then((res) => res.json())
           .then((result) => {
-            setAirData(result.list);
+            setAirData({ data: result.list, imperial: measurement });
+            console.log(result.list);
           });
       } catch (err) {
         console.log("ERROR!");
       }
     };
     fetchData();
+    // eslint-disable-next-line
   }, [lat, long]);
 
   return (
-    data &&
+    weatherData &&
     forecastData &&
     airData && (
       <main className="container_horizontal main">
         {forecastData && (
-          <Content weatherData={data} forecastData={forecastData} />
+          <Content weatherData={weatherData} forecastData={forecastData} />
         )}
-        <Sidebar weatherData={data} airData={airData} />
+        <Sidebar weatherData={weatherData} airData={airData} />
       </main>
     )
   );
