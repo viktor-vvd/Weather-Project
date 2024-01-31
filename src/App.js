@@ -3,6 +3,7 @@ import "./assets/styles/index.scss";
 import { useSelector } from "react-redux";
 import Content from "./components/Content/Content";
 import Sidebar from "./components/Sidebar/Sidebar";
+import {testAirData, testForecastData, testWeatherData} from "./testData";
 
 const App = () => {
   // eslint-disable-next-line
@@ -10,11 +11,11 @@ const App = () => {
   // eslint-disable-next-line
   const [long, setLong] = useState(25.3054);
 
-  const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecast] = useState(null);
-  /*   const [measurement, setMeasurement] = useState(false);*/
-  const [airData, setAirData] = useState();
   const measurement = useSelector((state) => state.measurement.measurement);
+  const [weatherData, setWeatherData] = useState({ data: testWeatherData, imperial: measurement });
+  const [forecastData, setForecast] = useState({ data: testForecastData, imperial: measurement });
+  /*   const [measurement, setMeasurement] = useState(false);*/
+  const [airData, setAirData] = useState({ data: testAirData, imperial: measurement });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,7 +23,7 @@ const App = () => {
         setLat(position.coords.latitude);
         setLong(position.coords.longitude);
       });*/
-      try {
+      /* try {
         await fetch(
           `${
             process.env.REACT_APP_API_URL
@@ -37,14 +38,14 @@ const App = () => {
           });
       } catch (err) {
         console.log("ERROR!");
-      }
+      } */
     };
     fetchData();
   }, [lat, long, measurement]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      /* try {
         await fetch(
           `${
             process.env.REACT_APP_API_URL
@@ -59,14 +60,14 @@ const App = () => {
           });
       } catch (err) {
         console.log("ERROR!");
-      }
+      } */
     };
     fetchData();
   }, [lat, long, measurement]);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
+      /* try {
         await fetch(
           `${process.env.REACT_APP_API_URL}/air_pollution?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_KEY}`
         )
@@ -77,7 +78,7 @@ const App = () => {
           });
       } catch (err) {
         console.log("ERROR!");
-      }
+      } */
     };
     fetchData();
     // eslint-disable-next-line
