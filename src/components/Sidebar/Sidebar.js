@@ -54,7 +54,7 @@ function Sidebar({ weatherData, airData }) {
         <AdditionalInfo
           title="Wind Gust"
           value={weatherData.data.wind.gust}
-          measurement={weatherData.imperial ? " m/s" : " mph"}
+          measurement={weatherData.imperial ? " mph" : " m/s"}
           icon={Wind}
         />
       </div>
