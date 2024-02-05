@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import measurementReducer from "./measurementSlice";
+import unitsReducer from "./unitsSlice";
 import modalReducer from "./modalSlice";
 import locationReducer from "./locationSlice";
 
 export const store = configureStore({
   reducer: {
-    measurement: measurementReducer,
+    units: unitsReducer,
     modal: modalReducer,
     location: locationReducer,
   },

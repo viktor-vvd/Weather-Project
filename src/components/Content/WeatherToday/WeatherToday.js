@@ -4,7 +4,7 @@ import moment from "moment";
 /* import { useSelector } from "react-redux"; */
 
 const WeatherToday = ({ weatherData }) => {
-  /* const measurement = useSelector((state) => state.measurement.measurement); */
+  /* const units = useSelector((state) => state.units.units); */
   const [date, setDate] = useState(moment().format("dddd"));
   const [time, setTime] = useState(moment());
 
@@ -23,9 +23,9 @@ const WeatherToday = ({ weatherData }) => {
         <h3 className="headline temp__value">
           {Math.round(weatherData.data.main.temp)}
         </h3>
-        <div className="container_horizontal temp__measurement">
-          <span className="headline measurement__degree">o</span>
-          <span className="headline measurement__symbol">
+        <div className="container_horizontal temp__units">
+          <span className="headline units__degree">o</span>
+          <span className="headline units__symbol">
             {weatherData.imperial ? "F" : "C"}
           </span>
         </div>

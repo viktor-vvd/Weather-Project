@@ -12,20 +12,20 @@ const App = () => {
   //const [long, setLong] = useState(25.3054);
 
   const location = useSelector((state) => state.location.location);
+  const units = useSelector((state) => state.units.units);
 
-  const measurement = useSelector((state) => state.measurement.measurement);
   const [weatherData, setWeatherData] = useState({
     data: testWeatherData,
-    imperial: measurement,
+    imperial: units,
   });
   const [forecastData, setForecast] = useState({
     data: testForecastData,
-    imperial: measurement,
+    imperial: units,
   });
-  /*   const [measurement, setMeasurement] = useState(false);*/
+  /*   const [units, setUnits] = useState(false);*/
   const [airData, setAirData] = useState({
     data: testAirData,
-    imperial: measurement,
+    imperial: units,
   });
 
   useEffect(() => {
@@ -38,21 +38,21 @@ const App = () => {
         await fetch(
           `${process.env.REACT_APP_API_URL}/weather/?lat=${location.lat}&lon=${
             location.lon
-          }&units=${measurement ? "imperial" : "metric"}&APPID=${
+          }&units=${units ? "imperial" : "metric"}&APPID=${
             process.env.REACT_APP_API_KEY
           }`
         )
           .then((res) => res.json())
           .then((result) => {
-            setWeatherData({ data: result, imperial: measurement });
-            console.log({ data: result, imperial: measurement });
+            setWeatherData({ data: result, imperial: units });
+            console.log({ data: result, imperial: units });
           });
       } catch (err) {
         console.log("ERROR!");
       }
     };
     location && fetchData();
-  }, [location, measurement]);
+  }, [location, units]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,13 +60,13 @@ const App = () => {
         await fetch(
           `${process.env.REACT_APP_API_URL}/forecast?lat=${location.lat}&lon=${
             location.lon
-          }&cnt=8&units=${measurement ? "imperial" : "metric"}&appid=${
+          }&cnt=8&units=${units ? "imperial" : "metric"}&appid=${
             process.env.REACT_APP_API_KEY
           }`
         )
           .then((res) => res.json())
           .then((result) => {
-            setForecast({ data: result.list, imperial: measurement });
+            setForecast({ data: result.list, imperial: units });
             console.log(result.list);
           });
       } catch (err) {
@@ -74,7 +74,7 @@ const App = () => {
       }
     };
     location && fetchData();
-  }, [location, measurement]);
+  }, [location, units]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,7 +84,7 @@ const App = () => {
         )
           .then((res) => res.json())
           .then((result) => {
-            setAirData({ data: result.list, imperial: measurement });
+            setAirData({ data: result.list, imperial: units });
             console.log(result.list);
           });
       } catch (err) {

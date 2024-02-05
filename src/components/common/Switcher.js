@@ -1,17 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeMeasurement } from "../../store/measurementSlice";
+import { changeUnits } from "../../store/unitsSlice";
 
 const Switcher = () => {
-  const measurement = useSelector((state) => state.measurement.measurement);
+  const units = useSelector((state) => state.units.units);
   const dispatch = useDispatch();
   return (
     <label className="switcher">
       <input
         type="checkbox"
         className="switcher__checkbox"
-        checked={measurement}
-        onChange={() => dispatch(changeMeasurement({ measurement }))}
+        checked={units}
+        onChange={() => dispatch(changeUnits({ units }))}
       ></input>
       <div className="switcher__toggle" />
       <div className="container_horizontal switcher__value">

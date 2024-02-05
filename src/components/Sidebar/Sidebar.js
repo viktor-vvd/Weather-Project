@@ -29,22 +29,22 @@ function Sidebar({ weatherData, airData }) {
         <AdditionalInfo
           title="Cloudiness"
           value={weatherData.data.clouds.all}
-          measurement={"%"}
+          units={"%"}
         />
         <AdditionalInfo
           title="Wind Direction"
           value={weatherData.data.wind.deg}
-          measurement={"\u00b0"}
+          units={"\u00b0"}
         />
         <AdditionalInfo
           title="Air Pollution"
           value={airData.data[0].main.aqi}
-          measurement={"/5"}
+          units={"/5"}
         />
         <AdditionalInfo
           title="Wind Gust"
           value={weatherData.data.wind.gust}
-          measurement={weatherData.imperial ? " mph" : " m/s"}
+          units={weatherData.imperial ? " mph" : " m/s"}
           icon={Wind}
         />
       </div>
