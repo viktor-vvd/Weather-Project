@@ -1,7 +1,6 @@
 import React from "react";
 import Location from "./Location";
 import SunriseSunset from "./SunriseSunset";
-import InfoIcon from "./../../images/InfoIcon.svg";
 import Wind from "./../../images/WindSpeed.svg";
 import AdditionalInfo from "../common/AdditionalInfo";
 
@@ -24,16 +23,7 @@ function Sidebar({ weatherData, airData }) {
           imperial={weatherData.imperial}
         />
       </div>
-      <div className="container_horizontal sidebar__divider">
-        <hr />
-        <img
-          className="divider__icon"
-          src={InfoIcon}
-          alt="Info"
-          width="40px"
-          height="40px"
-        />
-      </div>
+      <hr className="sidebar__divider" />
 
       <div className="sidebar__additional-info">
         <AdditionalInfo

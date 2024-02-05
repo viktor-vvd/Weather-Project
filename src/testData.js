@@ -354,4 +354,48 @@
     }
   ];
 
-  export {testAirData, testForecastData, testWeatherData};
+  const testLocations=[
+    {
+        "name": "Town of Denmark",
+        "local_names": {
+            "en": "Town of Denmark"
+        },
+        "lat": 43.899871,
+        "lon": -75.582504,
+        "country": "US",
+        "state": "New York"
+    },
+    {
+        "name": "Denmark",
+        "lat": 43.9707277,
+        "lon": -70.8035298,
+        "country": "US",
+        "state": "Maine"
+    },
+    {
+        "name": "Denmark",
+        "lat": 33.3226546,
+        "lon": -81.1423236,
+        "country": "US",
+        "state": "South Carolina"
+    },
+    {
+        "name": "Shire Of Denmark",
+        "local_names": {
+            "en": "Shire Of Denmark"
+        },
+        "lat": -34.936026999999996,
+        "lon": 117.1316105871886,
+        "country": "AU",
+        "state": "Western Australia"
+    },
+    {
+        "name": "Denmark",
+        "lat": -34.9604365,
+        "lon": 117.3551157,
+        "country": "AU",
+        "state": "Western Australia"
+    }
+];
+
+  export {testAirData, testForecastData, testWeatherData, testLocations};
