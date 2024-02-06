@@ -1,7 +1,6 @@
 import React from "react";
 import Location from "./Location";
 import SunriseSunset from "./SunriseSunset";
-import InfoIcon from "./../../images/InfoIcon.svg";
 import Wind from "./../../images/WindSpeed.svg";
 import AdditionalInfo from "../common/AdditionalInfo";
 
@@ -24,37 +23,28 @@ function Sidebar({ weatherData, airData }) {
           imperial={weatherData.imperial}
         />
       </div>
-      <div className="container_horizontal sidebar__divider">
-        <hr />
-        <img
-          className="divider__icon"
-          src={InfoIcon}
-          alt="Info"
-          width="40px"
-          height="40px"
-        />
-      </div>
+      <hr className="sidebar__divider" />
 
       <div className="sidebar__additional-info">
         <AdditionalInfo
           title="Cloudiness"
           value={weatherData.data.clouds.all}
-          measurement={"%"}
+          units={"%"}
         />
         <AdditionalInfo
           title="Wind Direction"
           value={weatherData.data.wind.deg}
-          measurement={"\u00b0"}
+          units={"\u00b0"}
         />
         <AdditionalInfo
           title="Air Pollution"
           value={airData.data[0].main.aqi}
-          measurement={"/5"}
+          units={"/5"}
         />
         <AdditionalInfo
           title="Wind Gust"
           value={weatherData.data.wind.gust}
-          measurement={weatherData.imperial ? " mph" : " m/s"}
+          units={weatherData.imperial ? " mph" : " m/s"}
           icon={Wind}
         />
       </div>

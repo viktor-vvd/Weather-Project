@@ -9,18 +9,8 @@
 
     &__divider {
         width: 100%;
-        gap: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.26);
 
-        hr {
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.26);
-
-        }
-
-        .divider__icon {
-            width: 40px;
-            height: auto;
-        }
     }
 
     &__additional-info {

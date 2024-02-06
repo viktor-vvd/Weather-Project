@@ -11,7 +11,7 @@ const SunriseSunset = ({ type, time, imperial }) => {
     return <WiSunset />;
   }
 
-  /* const measurement = useSelector((state) => state.measurement.measurement); */
+  /* const units = useSelector((state) => state.units.units); */
 
   return (
     <div className="container_vertical sunrise-sunset">

@@ -3,7 +3,7 @@ import moment from "moment";
 /* import { useSelector } from "react-redux"; */
 
 const WeatherCard = ({ tempValue, icon, time, imperial }) => {
-  /* const measurement = useSelector((state) => state.measurement.measurement); */
+  /* const units = useSelector((state) => state.units.units); */
 
   return (
     <swiper-slide class="container_vertical weather-card__container">

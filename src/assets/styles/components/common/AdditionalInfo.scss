@@ -1,13 +1,14 @@
-.additional-info{
+.additional-info {
     gap: 3px;
     width: fit-content;
+    text-align: center;
 
-    &__content{
+    &__content {
         justify-content: center;
-        gap:11px;
+        gap: 11px;
     }
 
-    &__icon{
+    &__icon {
         width: auto;
         height: 19px;
     }

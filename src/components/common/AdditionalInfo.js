@@ -4,17 +4,17 @@ import React from "react";
 const AdditionalInfo = ({
   title,
   value = null,
-  measurement = null,
+  units = null,
   icon = null,
 }) => {
-  /* const measurement = useSelector((state) => state.measurement.measurement); */
+  /* const units = useSelector((state) => state.units.units); */
   return (
     <div className="container_vertical additional-info">
       <h5 className="headline">{title}</h5>
       <div className="container_horizontal additional-info__content">
         <span className="headline_bold">
           {value ? Math.round(value * 10) / 10 : "ERROR"}
-          {value && measurement}
+          {value && units}
         </span>
         {icon && (
           <img
