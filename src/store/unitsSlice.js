@@ -3,13 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const unitsSlice = createSlice({
   name: "units",
   initialState: {
-    units: false,
+    units: null,
   },
   reducers: {
     changeUnits(state, action) {
       /* console.log(state);
       console.log(action); */
-      state.units = !action.payload.units;
+      state.units = action.payload;
     },
   },
 });

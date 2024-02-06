@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeModal } from "../../store/modalSlice";
 import { changeLocation } from "../../store/locationSlice";
+import Cookies from "js-cookie";
 
 const LocationModal = () => {
   const modal = useSelector((state) => state.modal.modal);
@@ -39,6 +40,7 @@ const LocationModal = () => {
   const onLocationItemClick = (item) => {
     console.log(item);
     dispatch(changeLocation(item));
+    Cookies.set("location", JSON.stringify(item));
     dispatch(changeModal(!modal));
   };
 
