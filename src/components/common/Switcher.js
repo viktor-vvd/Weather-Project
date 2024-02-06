@@ -8,7 +8,7 @@ const Switcher = () => {
   const dispatch = useDispatch();
 
   return (
-    <label className="switcher">
+    <label className="switcher" title="Change units">
       <input
         type="checkbox"
         className="switcher__checkbox"

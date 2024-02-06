@@ -29,6 +29,7 @@ const Location = ({ city, country }) => {
         </span>
       </div>
       <div
+        title={modal ?"Close":"Select location"}
         className={
           "location__button" + (modal ? " location__button_close" : "")
         }
