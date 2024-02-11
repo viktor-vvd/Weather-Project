@@ -3,24 +3,24 @@
     flex: 6;
     max-width: 60%;
     min-height: 100vh;
-    gap:25px;
-    padding-left: 30px;
+    gap:25rem;
+    /* padding-left: 30rem; */
 
-    //1920px
+    //1920rem
     // align-items: flex-start;
     // justify-content: space-around;
-    // padding: 20px 50px;
-    // padding-left: 30px;
+    // padding: 20rem 50rem;
+    // padding-left: 30rem;
 
     
     &_header{
         width: 100%;
-        /* padding-bottom: 20px; */
-        padding-left: 20px;
+        /* padding-bottom: 20rem; */
+        /* padding-left: 20rem; */
 
         .icon_actual{
             width: auto;
-            height: 100px;
+            height: 100rem;
             object-fit: contain;
         }
     }

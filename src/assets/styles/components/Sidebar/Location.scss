@@ -1,5 +1,5 @@
 .location {
-    gap: 23px;
+    gap: 23rem;
     z-index: 1;
     transition: all 0.5s ease-in-out;
 
@@ -9,12 +9,12 @@
 
     &__container {
         width: 100%;
-        padding: 20px 0;
+        padding: 20rem 0;
         position: relative;
     }
 
     &__icon {
-        width: 32px;
+        width: 32rem;
         height: auto;
         flex-shrink: 0;
         overflow: visible;
@@ -22,14 +22,14 @@
 
     &__button {
         cursor: pointer;
-        padding: 12px;
-        border-radius: 20px;
+        padding: 12rem;
+        border-radius: 20rem;
         /* background: linear-gradient(117deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 99.45%);
-        backdrop-filter: blur(5px); */
+        backdrop-filter: blur(5rem); */
         z-index: 11;
 
         img {
-            width: 35px;
+            width: 35rem;
             height: auto;
             flex-shrink: 0;
             transition: all 0.5s ease-in-out;

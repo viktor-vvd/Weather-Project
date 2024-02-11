@@ -23,7 +23,7 @@ const Forecast = ({ forecastData }) => {
       observeSlideChildren: true,
       observeParents: true,
       slidesPerView: "auto",
-      /* spaceBetween: 20, */
+      spaceBetween: 20,
       /* breakpoints: {
         200: {
         },
