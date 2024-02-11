@@ -1,7 +1,7 @@
-// html {
-//     /* font-size: calc(1rem + vw); */
-//     /* font-size: calc(1rem*0.0625); */
-// }
+html {
+    /* font-size: calc(1rem + vw); */
+    font-size: calc(1rem*0.0625);
+}
 
 body {
     background: linear-gradient(243.18deg, #9065BC 0%, rgba(255, 0, 108, 0.38) 100%);
@@ -11,7 +11,7 @@ body {
 
     &_outer{
         width: 100%;
-        padding: 50px;
+        padding: 50rem;
     }
 
     &_horizontal {
@@ -39,7 +39,7 @@ body {
 
 .headline {
     @include font_headline;
-    /* 32px */
+    /* 32rem */
 
     &_bold {
         @include font_headline;
@@ -50,20 +50,20 @@ body {
 
 .title {
     @include font_title;
-    /* 28px */
+    /* 28rem */
 }
 
 .subtitle {
     @include font_subtitle;
-    /* 24px */
+    /* 24rem */
 }
 
 .text {
     @include font_text;
-    /* 22px */
+    /* 22rem */
 
     &_light {
         @include font_text_light;
-        /* 20px */
+        /* 20rem */
     }
 }

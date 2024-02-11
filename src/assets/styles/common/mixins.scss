@@ -1,35 +1,53 @@
 @mixin font_headline {
     font-family: 'Roboto', sans-serif;
-    font-size: 32px;
+    font-size: 32rem;
     font-weight: 300;
     line-height: 120%;
-    letter-spacing: 0.384px;
+    letter-spacing: .384rem;
 }
 
 @mixin font_title {
     font-family: 'Roboto', sans-serif;
-    font-size: 28px;
+    font-size: 28rem;
     font-weight: 400;
     line-height: normal;
 }
 
 @mixin font_subtitle {
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 24rem;
     font-weight: 400;
     line-height: normal;
 }
 
 @mixin font_text {
     font-family: 'Roboto', sans-serif;
-    font-size: 22px;
+    font-size: 22rem;
     font-weight: 300;
     line-height: normal;
 }
 
 @mixin font_text_light {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 20rem;
     font-weight: 400;
     line-height: normal;
 }
+
+@mixin sm {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 1279px) {
+        @content;
+    }
+}
+
+/*   @mixin lg {
+    @media (min-width: 1441px) {
+      @content;
+    }
+  } */

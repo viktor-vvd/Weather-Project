@@ -1,19 +1,19 @@
 .weather-card {
-    width: 130px;
-    max-width: 130px;
-    height: 210px;
-    min-height: 210px;
-    padding: 15px 10px 25px;
+    width: 130rem;
+    max-width: 130rem;
+    height: 210rem;
+    min-height: 210rem;
+    padding: 15rem 10rem 25rem;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-radius: 20px;
+    border-radius: 20rem;
     background: rgba(214, 214, 214, 0.40);
-    /* box-shadow: 3px -2px 14px -1px rgba(255, 255, 255, 0.60); */
+    /* box-shadow: 3rem -2rem 14rem -1rem rgba(255, 255, 255, 0.60); */
     overflow: hidden;
     flex-shrink: 0;
 
     &__icon {
-        width: 80px;
+        width: 80rem;
         height: auto;
         object-fit: contain;
     }
@@ -23,9 +23,9 @@
     }
 
     &__container {
-        width: 170px;
-        max-width: 170px;
-        height: 210px;
-        padding: 0 20px;
+        width: 170rem;
+        max-width: 170rem;
+        height: 210rem;
+        padding: 0 20rem;
     }
 }

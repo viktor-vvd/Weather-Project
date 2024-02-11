@@ -3,26 +3,26 @@
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
-    /* padding-top: 55px; */
-    padding-top: 20px;
+    /* padding-top: 55rem; */
+    padding-top: 20rem;
 
     &__slider {
-        flex: 2 158px;
+        flex: 2 158rem;
         min-width: 0;
         /* transition: all 0.1s ease-in-out; */
 
         &::part(container) {
-            padding: 20px 0;
-            margin: -20px 0;
+            padding: 20rem 0;
+            margin: -20rem 0;
         }
     }
 
     &__button {
-        padding: 10px 60px 10px 20px;
+        padding: 10rem 60rem 10rem 0;
         transition: all 0.1s ease-in-out;
 
         &#forecast__next {
-            padding: 10px 14px 10px 60px;
+            padding: 10rem 0 10rem 60rem;
             justify-content: flex-end;
         }
 
@@ -41,7 +41,7 @@
         svg {
             cursor: pointer;
             width: auto;
-            height: 54.366px;
+            height: 54.366rem;
             flex-shrink: 0;
         }
     }

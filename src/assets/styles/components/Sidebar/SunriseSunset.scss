@@ -1,19 +1,19 @@
 .sunrise-sunset {
-    gap: 25px;
+    gap: 25rem;
 
     &__card {
-        height: 281px;
-        width: 140px;
+        height: 281rem;
+        width: 140rem;
         justify-content: space-around;
-        padding: 10px 10px ;
-        border-radius: 50px;
+        padding: 10rem 10rem ;
+        border-radius: 50rem;
         background: rgba(255, 255, 255, 0.25);
         flex-shrink: 0;
     }
 
     &__clock {
-        height: 63px;
-        width: 63px;
+        height: 63rem;
+        width: 63rem;
         position: relative;
 
         .clock {
@@ -21,8 +21,8 @@
             &__hour,
             &__minute {
                 position: absolute;
-                height: 23px;
-                width: 3px;
+                height: 23rem;
+                width: 3rem;
                 margin: auto;
                 top: -36%;
                 left: 0;
@@ -30,17 +30,17 @@
                 right: 0;
                 background: rgba(255, 255, 255, 0.48);
                 transform-origin: bottom center;
-                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+                box-shadow: 0 0 5rem 0 rgba(0, 0, 0, 0.4);
                 z-index: 1;
                 border-radius: 50%;
             }
 
             &__minute {
-                height: 31px;
-                width: 2px;
+                height: 31rem;
+                width: 2rem;
                 top: -48%;
                 background: rgba(0, 0, 0, 0.2);
-                box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+                box-shadow: 0 0 10rem 0 rgba(0, 0, 0, 0.4);
                 transform: rotate(90deg);
             }
 
@@ -50,11 +50,11 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                width: 4px;
-                height: 4px;
+                width: 4rem;
+                height: 4rem;
                 border-radius: 100%;
                 background: white;
-                border: 1px solid white;
+                border: 1rem solid white;
                 margin: auto;
                 z-index: 1;
             }
@@ -62,7 +62,7 @@
     }
 
     svg {
-        width: 90px;
-        height: 90px;
+        width: 90rem;
+        height: 90rem;
     }
 }
