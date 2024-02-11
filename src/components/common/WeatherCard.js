@@ -6,8 +6,7 @@ const WeatherCard = ({ tempValue, icon, time, imperial }) => {
   /* const units = useSelector((state) => state.units.units); */
 
   return (
-    <swiper-slide class="container_vertical weather-card__container">
-      <div className="container_vertical weather-card">
+    <swiper-slide class="container_vertical weather-card">
         <span className="weather-card__temp">
           <span className="subtitle">
             {Math.round(tempValue) + "\u00b0" + (imperial ? "F" : "C")}
@@ -24,7 +23,6 @@ const WeatherCard = ({ tempValue, icon, time, imperial }) => {
             <span className="text_light"> {moment.unix(time).format("A")}</span>
           )}
         </span>
-      </div>
     </swiper-slide>
   );
 };
