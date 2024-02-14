@@ -25,7 +25,7 @@ const Location = ({ city, country }) => {
           height="32px"
         />
         <span className="headline">
-          {city || "Lutsk"}, {country || "Ukraine"}
+          {`${city || "Lutsk"}, ${country || "UA"}`}
         </span>
       </div>
       <div
@@ -37,7 +37,7 @@ const Location = ({ city, country }) => {
       >
         <img src={More} alt="More" width="35px" height="35px" />
       </div>
-      <LocationModal />
+      <LocationModal placeholder={`${city || "Lutsk"}, ${country || "UA"}`}/>
     </div>
   );
 };
