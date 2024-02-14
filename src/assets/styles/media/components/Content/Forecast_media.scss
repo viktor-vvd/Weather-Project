@@ -1,0 +1,7 @@
+@include md {
+    .forecast {
+        &__button {
+            display: none;
+        }
+    }
+}
