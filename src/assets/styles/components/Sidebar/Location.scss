@@ -3,12 +3,22 @@
     z-index: 1;
     transition: all 0.5s ease-in-out;
 
+    .headline {
+        display: -webkit-box;
+        overflow: hidden;
+        width: 100%;
+        word-break: break-all;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
     &_hidden {
         opacity: 0;
     }
 
     &__container {
         width: 100%;
+        gap: 20rem;
         padding: 20rem 0;
         position: relative;
     }
@@ -24,6 +34,7 @@
         cursor: pointer;
         padding: 12rem;
         border-radius: 20rem;
+        flex-shrink: 0;
         /* background: linear-gradient(117deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 99.45%);
         backdrop-filter: blur(5rem); */
         z-index: 11;

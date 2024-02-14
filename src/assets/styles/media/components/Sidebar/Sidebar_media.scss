@@ -1,0 +1,9 @@
+@include md{
+    .sidebar {
+        gap:35rem;
+
+        &__additional-info {
+            row-gap: 35rem;
+        }
+    }
+}

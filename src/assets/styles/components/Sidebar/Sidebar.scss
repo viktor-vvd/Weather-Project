@@ -1,6 +1,8 @@
 .sidebar {
     flex: 4;
-    background-color: rgba(214, 214, 214, 0.1);
+    background: rgba(214, 214, 214, 0.1);
+    /* min-height: 100vh; */
+    gap:25rem;
 
     &__sunrise-sunset {
         width: 100%;

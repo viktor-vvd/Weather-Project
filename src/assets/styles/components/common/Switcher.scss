@@ -3,6 +3,7 @@
     display: inline-block;
     width: 120rem;
     height: 50rem;
+    flex-shrink: 0;
 
     &__value {
         position: absolute;
@@ -24,7 +25,7 @@
         height: 0;
 
         &:checked+.switcher__toggle:before {
-            transform: translateX(55rem);
+            transform: translateX(100%);
         }
     }
 
@@ -35,7 +36,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(196, 196, 196, 0.25);
+            background: rgba(214, 214, 214, 0.1);
+        /* background: rgba(255, 255, 255, 0.25); */
+        /* backdrop-filter: blur(15rem); */
         transition: all .4s ease-in-out;
         border-radius: 100rem;
 
@@ -43,13 +46,16 @@
         &:before {
             position: absolute;
             content: "";
-            height: 50rem;
-            width: 65rem;
+            height: 100%;
+            width: 50%;
             left: 0rem;
             bottom: 0rem;
-            box-shadow: 0rem 4rem 10rem rgba(0, 0, 0, 0.2), 0rem 0rem 10rem rgba(0, 0, 0, 0.2);
+            //box-shadow: 0rem 4rem 10rem rgba(0, 0, 0, 0.2), 0rem 0rem 10rem rgba(0, 0, 0, 0.2);
             border-radius: 40rem;
-            background: rgba(196, 196, 196, 0.25);
+            /* background: rgba(196, 196, 196, 0.25); */
+            /* background: rgba(150, 150, 150, 0.25); */ //
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(15rem);
             transition: all .4s ease-in-out;
         }
     }
