@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Location from "./Location";
 import SunriseSunset from "./SunriseSunset";
 import Wind from "./../../images/WindSpeed.svg";
 import AdditionalInfo from "../common/AdditionalInfo";
 
 function Sidebar({ weatherData, airData }) {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1279);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setIsDesktop(window.innerWidth > 1279);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
   return (
     <div className="container_outer container_vertical sidebar">
-      <Location
-        city={weatherData.data.name}
-        country={weatherData.data.sys.country}
-      />
+      {isDesktop && (
+        <Location
+          city={weatherData.data.name}
+          country={weatherData.data.sys.country}
+        />
+      )}
       <div className="container_horizontal sidebar__sunrise-sunset">
         <SunriseSunset
           type="Sunrise"

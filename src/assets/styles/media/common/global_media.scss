@@ -1,0 +1,79 @@
+// html {
+//     /* font-size: calc(1rem + vw); */
+//     font-size: calc(1rem*0.0625);
+// }
+
+// body {
+//     background: linear-gradient(243.18deg, #9065BC 0%, rgba(255, 0, 108, 0.38) 100%);
+// }
+
+// .container {
+
+//     &_outer{
+//         width: 100%;
+//         padding: 50rem;
+//     }
+
+//     &_horizontal {
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//     }
+
+//     &_vertical {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//         align-items: center;
+//     }
+// }
+
+// .main {
+//     min-height: 100vh;
+//     width: 100%;
+//     justify-content: space-between;
+//     align-items: stretch;
+//     flex-wrap: wrap;
+//     color: #fff;
+// }
+
+// .headline {
+//     @include font_headline;
+//     /* 32rem */
+
+//     &_bold {
+//         @include font_headline;
+//         font-weight: 400;
+//         line-height: normal;
+//     }
+// }
+
+// .title {
+//     @include font_title;
+//     /* 28rem */
+// }
+
+// .subtitle {
+//     @include font_subtitle;
+//     /* 24rem */
+// }
+
+// .text {
+//     @include font_text;
+//     /* 22rem */
+
+//     &_light {
+//         @include font_text_light;
+//         /* 20rem */
+//     }
+// }
+
+@include md{
+    .container {
+
+            &_outer{
+                width: 100%;
+                padding: 35rem;
+            }
+    }
+}

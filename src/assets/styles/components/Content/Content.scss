@@ -1,9 +1,9 @@
-.content{
+.content {
     align-items: flex-start;
     flex: 6;
     max-width: 60%;
     min-height: 100vh;
-    gap:25rem;
+    gap: 25rem;
     /* padding-left: 30rem; */
 
     //1920rem
@@ -12,13 +12,14 @@
     // padding: 20rem 50rem;
     // padding-left: 30rem;
 
-    
-    &_header{
+
+    &_header {
         width: 100%;
+        gap: 20rem;
         /* padding-bottom: 20rem; */
         /* padding-left: 20rem; */
 
-        .icon_actual{
+        .icon_actual {
             width: auto;
             height: 100rem;
             object-fit: contain;

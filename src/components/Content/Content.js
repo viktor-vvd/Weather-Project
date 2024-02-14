@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Switcher from "../common/Switcher";
 import WeatherToday from "./WeatherToday/WeatherToday";
 import Forecast from "./Forecast";
+import Location from "../Sidebar/Location";
 
 const Content = ({ weatherData, forecastData }) => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1279);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setIsDesktop(window.innerWidth > 1279);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
+
   return (
     <section className="container_outer container_vertical content">
       <div className="container_horizontal content_header">
@@ -18,6 +33,12 @@ const Content = ({ weatherData, forecastData }) => {
           height="100px"
           alt="Actual weather"
         />
+        {!isDesktop && (
+          <Location
+            city={weatherData.data.name}
+            country={weatherData.data.sys.country}
+          />
+        )}
         <Switcher />
       </div>
       <WeatherToday weatherData={weatherData} />

@@ -1,0 +1,14 @@
+@include md {
+    .switcher {
+        height: 59rem;
+
+        &__toggle {
+            border-radius: 50rem;
+    
+    
+            &:before {
+                border-radius: 50rem;
+            }
+        }
+    }
+}
