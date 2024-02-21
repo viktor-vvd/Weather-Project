@@ -4,11 +4,17 @@
 
         &__toggle {
             border-radius: 50rem;
-    
-    
+
             &:before {
                 border-radius: 50rem;
             }
         }
+    }
+}
+
+@include sm {
+    .switcher {
+        width: 80rem;
+        height: 40rem;
     }
 }

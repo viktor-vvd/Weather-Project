@@ -15,7 +15,7 @@ const Details = ({ wind, humidity, pressure, imperial }) => {
           {Math.round(wind * 10) / 10 + " " + (imperial ? "mph" : "m/s")}
         </span>
       </div>
-      <img src={VerticalLine} alt="VerticalLine" />
+      <img className="details__divider" src={VerticalLine} alt="VerticalLine" />
       <div className="container_horizontal details__item">
         <div className="container_horizontal details__title">
           <WiHumidity />
@@ -23,7 +23,7 @@ const Details = ({ wind, humidity, pressure, imperial }) => {
         </div>
         <span className="text">{humidity} %</span>
       </div>
-      <img src={VerticalLine} alt="VerticalLine" />
+      <img className="details__divider" src={VerticalLine} alt="VerticalLine" />
       <div className="container_horizontal details__item">
         <div className="container_horizontal details__title">
           <WiBarometer />

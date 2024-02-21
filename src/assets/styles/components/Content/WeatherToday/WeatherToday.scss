@@ -1,6 +1,5 @@
 .weather-today {
     width: 100%;
-    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 29rem;
@@ -9,7 +8,6 @@
     .weather-today {
         &__temp {
             align-items: flex-start;
-            flex-wrap: wrap;
             justify-content: flex-start;
             gap: 13rem;
 
@@ -73,7 +71,6 @@
 
                     .time {
                         font-size: 50rem;
-                        letter-spacing: normal;
                         letter-spacing: 1.25rem;
                     }
                 }

@@ -1,0 +1,15 @@
+@include sm {
+    .sunrise-sunset {
+        gap: 25rem;
+
+        &__card {
+            height: 209rem;
+            width: 104rem;
+            border-radius: 33rem;
+        }
+
+        svg {
+            width: 60rem;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@include md {
+    .location-modal {
+        top: 0;
+    }
+}
+
+@include sm {
+    .location-modal {
+        padding: 8rem;
+        border-radius: 13rem;
+
+        &__bg {
+            border-radius: 13rem;
+
+            &_hidden {
+                width: 39rem;
+                height: 39rem;
+            }
+        }
+
+        &__list {
+            gap: 12rem;
+        }
+
+        &__input {
+            padding-right: 47rem;
+            padding-bottom: 4rem;
+        }
+    }
+}

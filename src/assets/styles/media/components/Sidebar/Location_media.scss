@@ -1,8 +1,37 @@
-@include md{.location {
+@include md {
+    .location {
 
+        &__container {
+            padding: 0;
+        }
 
-    &__icon {
-        display: none;
+        /* &__icon {
+            display: none;
+        } */
+
     }
+}
 
-}}
+@include sm {
+    .location {
+        gap: 16rem;
+
+        &__container {
+            gap: 10rem;
+            padding: 0;
+        }
+
+        &__icon {
+            width: 21rem;
+        }
+
+        &__button {
+            padding: 8rem;
+            border-radius: 13rem;
+
+            img {
+                width: 23rem;
+            }
+        }
+    }
+}

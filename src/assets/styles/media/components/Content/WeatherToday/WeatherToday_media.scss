@@ -1,0 +1,59 @@
+@include sm {
+    .weather-today {
+        max-height: 60%;
+        height: 100%;
+        justify-content: space-around;
+        gap: 25rem;
+
+        .weather-today {
+            &__temp {
+                gap: 8rem;
+
+                .temp {
+                    &__value {
+                        font-size: 109rem;
+                        letter-spacing: normal;
+                    }
+
+                    &__units {
+                        width: 38rem;
+                        height: 66rem;
+
+                        .units {
+                            &__degree {
+                                font-size: 21rem;
+                            }
+
+                            &__symbol {
+                                font-size: 47rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &__date {
+                gap: 25rem;
+
+                .date {
+                    &__full-date {
+                        font-size: 27rem;
+                    }
+
+                    &__time {
+                        gap: 12rem;
+
+                        .day {
+                            font-size: 25rem;
+                        }
+
+                        .time {
+                            font-size: 33rem;
+                            letter-spacing: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
