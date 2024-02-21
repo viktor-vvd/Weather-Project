@@ -5,7 +5,7 @@
         height: 281rem;
         width: 140rem;
         justify-content: space-around;
-        padding: 10rem 10rem ;
+        padding: 10rem 10rem;
         border-radius: 50rem;
         background: rgba(255, 255, 255, 0.25);
         flex-shrink: 0;
@@ -63,6 +63,6 @@
 
     svg {
         width: 90rem;
-        height: 90rem;
+        height: auto;
     }
 }

@@ -5,3 +5,9 @@
         }
     }
 }
+
+@include sm {
+    .forecast {
+        padding-top: 17rem;
+    }
+}

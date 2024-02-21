@@ -21,6 +21,12 @@ const Content = ({ weatherData, forecastData }) => {
 
   return (
     <section className="container_outer container_vertical content">
+      {!isDesktop && (
+        <Location
+          city={weatherData.data.name}
+          country={weatherData.data.sys.country}
+        />
+      )}
       <div className="container_horizontal content_header">
         <img
           src={
@@ -33,12 +39,6 @@ const Content = ({ weatherData, forecastData }) => {
           height="100px"
           alt="Actual weather"
         />
-        {!isDesktop && (
-          <Location
-            city={weatherData.data.name}
-            country={weatherData.data.sys.country}
-          />
-        )}
         <Switcher />
       </div>
       <WeatherToday weatherData={weatherData} />

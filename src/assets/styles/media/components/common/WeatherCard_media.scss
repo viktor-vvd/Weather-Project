@@ -1,0 +1,12 @@
+.weather-card {
+    width: 98rem;
+    max-width: 98rem;
+    height: 160rem;
+    min-height: 160rem;
+    padding: 10rem 7rem 17rem;
+    border-radius: 13rem;
+
+    &__icon {
+        width: 53rem;
+    }
+}

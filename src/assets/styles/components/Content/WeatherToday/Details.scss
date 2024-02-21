@@ -11,11 +11,16 @@
 
     }
 
+    .text {
+        white-space: nowrap;
+    }
+
     svg {
         height: 30rem;
         width: auto;
     }
-    img {
+
+    &__divider {
         height: 22rem;
         width: auto;
     }

@@ -68,12 +68,58 @@
 //     }
 // }
 
-@include md{
+@include md {
     .container {
 
-            &_outer{
-                width: 100%;
-                padding: 35rem;
-            }
+        &_outer {
+            width: 100%;
+            padding: 35rem;
+        }
+    }
+}
+
+@include sm {
+    .container {
+
+        &_outer {
+            padding: 20rem;
+        }
+    }
+
+    .headline {
+        @include font_headline;
+        font-size: 21rem;
+        /* 32rem */
+
+        &_bold {
+            @include font_headline;
+            font-size: 21rem;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+
+    .title {
+        @include font_title;
+        font-size: 19rem;
+        /* 28rem */
+    }
+
+    .subtitle {
+        @include font_subtitle;
+        font-size: 16rem;
+        /* 24rem */
+    }
+
+    .text {
+        @include font_text;
+        font-size: 17rem;
+        /* 22rem */
+
+        &_light {
+            @include font_text_light;
+            font-size: 16rem;
+            /* 20rem */
+        }
     }
 }

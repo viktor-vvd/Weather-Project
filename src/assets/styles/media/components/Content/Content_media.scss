@@ -1,7 +1,21 @@
-@include md{
-    .content{
-        flex: 6;
+@include md {
+    .content {
         max-width: 100%;
-        gap:25rem;
+        gap: 16rem;
+    }
+}
+
+@include sm {
+    .content {
+        // justify-content: space-around;
+        gap: 8rem;
+
+        &_header {
+            gap: 15rem;
+
+            .icon_actual {
+                height: 60rem;
+            }
+        }
     }
 }
