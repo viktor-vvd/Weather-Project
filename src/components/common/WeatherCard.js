@@ -18,7 +18,7 @@ const WeatherCard = ({ tempValue, icon, time, imperial }) => {
           alt="Pic"
         />
         <span className="subtitle weather-card__time">
-          {moment.unix(time).format(imperial ? "HH:mm" : "hh:mm")}
+          {moment.unix(time).format(imperial ? "hh:mm" : "HH:mm")}
           {imperial && (
             <span className="text_light"> {moment.unix(time).format("A")}</span>
           )}
