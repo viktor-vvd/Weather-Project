@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Cookies from "js-cookie";
 import { changeUnits } from "./store/unitsSlice";
 import { changeLocation } from "./store/locationSlice";
+import { fetchAirData, fetchForecastData, fetchWeatherData } from "./api";
 
 const App = () => {
   // eslint-disable-next-line
@@ -38,7 +39,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(changeUnits(Cookies.get("units") === "true"));
-    console.log("u " + units);
+    //console.log("u " + units);
     if (Cookies.get("location") !== undefined) {
       dispatch(changeLocation(JSON.parse(Cookies.get("location"))));
     } else {
@@ -53,75 +54,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      /*navigator.geolocation.getCurrentPosition(function (position) {
-        setLat(position.coords.latitude);
-        setLong(position.coords.longitude);
-      });*/
-      if (units !== null && location !== null) {
-        try {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/weather/?lat=${
-              location.lat
-            }&lon=${location.lon}&units=${
-              units ? "imperial" : "metric"
-            }&APPID=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setWeatherData({ data: result, imperial: units });
-              console.log({ data: result, imperial: units });
-            });
-        } catch (err) {
-          console.log("ERROR!");
-        }
-      }
-    };
-    location && fetchData();
+    fetchWeatherData(location, units, setWeatherData);
+    fetchForecastData(location, units, setForecast);
   }, [location, units]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (units !== null && location !== null) {
-        try {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/forecast?lat=${
-              location.lat
-            }&lon=${location.lon}&cnt=8&units=${
-              units ? "imperial" : "metric"
-            }&appid=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setForecast({ data: result.list, imperial: units });
-              console.log(result.list);
-            });
-        } catch (err) {
-          console.log("ERROR!");
-        }
-      }
-    };
-    location && fetchData();
-  }, [location, units]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (location !== null) {
-        try {
-          await fetch(
-            `${process.env.REACT_APP_API_URL}/air_pollution?lat=${location.lat}&lon=${location.lon}&appid=${process.env.REACT_APP_API_KEY}`
-          )
-            .then((res) => res.json())
-            .then((result) => {
-              setAirData({ data: result.list, imperial: units });
-              console.log(result.list);
-            });
-        } catch (err) {
-          console.log("ERROR!");
-        }
-      }
-    };
-    location && fetchData();
+    fetchAirData(location, units, setAirData)
     // eslint-disable-next-line
   }, [location]);
 

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeModal } from "../../store/modalSlice";
 import { changeLocation } from "../../store/locationSlice";
 import Cookies from "js-cookie";
+import { fetchGeocodingData } from "../../api";
 
 const LocationModal = ({ placeholder = "Location" }) => {
   const modal = useSelector((state) => state.modal.modal);
@@ -14,31 +15,15 @@ const LocationModal = ({ placeholder = "Location" }) => {
   const onInputChange = async (value) => {
     setInputValue(value);
     if (value.length > 0) {
-      console.log(value.length);
-      /* `${
-            process.env.REACT_APP_API_URL
-          }/find?q=${value}&type=like&sort=population&cnt=${5}&APPID=${process.env.REACT_APP_API_KEY}` */
-      try {
-        await fetch(
-          `${
-            process.env.REACT_APP_API_GEOCODING_URL
-          }/direct?q=${value}&limit=${5}&APPID=${process.env.REACT_APP_API_KEY}`
-        )
-          .then((res) => res.json())
-          .then((result) => {
-            setMatches(result);
-            console.log(result);
-          });
-      } catch (err) {
-        console.log(err);
-      }
+      //console.log(value.length);
+      fetchGeocodingData(value, setMatches);
     } else if (value.length === 0) {
       setMatches([]);
     }
   };
 
   const onLocationItemClick = (item) => {
-    console.log(item);
+    //console.log(item);
     dispatch(changeLocation(item));
     Cookies.set("location", JSON.stringify(item));
     dispatch(changeModal(!modal));
