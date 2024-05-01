@@ -29,7 +29,7 @@ const Location = ({ city, country }) => {
         </span>
       </div>
       <div
-        title={modal ?"Close":"Select location"}
+        title={modal ? "Close" : "Select location"}
         className={
           "location__button" + (modal ? " location__button_close" : "")
         }
@@ -37,7 +37,7 @@ const Location = ({ city, country }) => {
       >
         <img src={More} alt="More" width="35px" height="35px" />
       </div>
-      <LocationModal placeholder={`${city || "Lutsk"}, ${country || "UA"}`}/>
+      <LocationModal placeholder={`${city || "Lutsk"}, ${country || "UA"}`} />
     </div>
   );
 };

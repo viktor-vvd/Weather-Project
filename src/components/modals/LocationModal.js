@@ -4,7 +4,7 @@ import { changeModal } from "../../store/modalSlice";
 import { changeLocation } from "../../store/locationSlice";
 import Cookies from "js-cookie";
 
-const LocationModal = ({placeholder="Location"}) => {
+const LocationModal = ({ placeholder = "Location" }) => {
   const modal = useSelector((state) => state.modal.modal);
   const dispatch = useDispatch();
 
@@ -70,7 +70,7 @@ const LocationModal = ({placeholder="Location"}) => {
           }
         >
           <input
-            className=/* title */ "headline location-modal__input"
+            className="headline location-modal__input"
             name="password"
             type="text"
             value={inputValue}
@@ -86,7 +86,9 @@ const LocationModal = ({placeholder="Location"}) => {
                   onClick={() => onLocationItemClick(item)}
                 >
                   <span className="title">
-                    {`${item.name}, ${item.state ? `${item.state}, ` : ""} ${item.country}`}
+                    {`${item.name}, ${item.state ? `${item.state}, ` : ""} ${
+                      item.country
+                    }`}
                   </span>
                 </li>
               ))}
