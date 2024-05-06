@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Location from "./Location";
 import SunriseSunset from "./SunriseSunset";
 import Wind from "./../../images/WindSpeed.svg";
 import AdditionalInfo from "../common/AdditionalInfo";
+import { useTranslation } from "react-i18next";
+import Preferences from "../common/Preferences";
 
 function Sidebar({ weatherData, airData }) {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1279);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -21,19 +23,19 @@ function Sidebar({ weatherData, airData }) {
   return (
     <div className="container_outer container_vertical sidebar">
       {isDesktop && (
-        <Location
+        <Preferences
           city={weatherData.data.name}
           country={weatherData.data.sys.country}
         />
       )}
       <div className="container_horizontal sidebar__sunrise-sunset">
         <SunriseSunset
-          type="Sunrise"
+          type={t("sidebar.sunrise")}
           time={weatherData.data.sys.sunrise}
           imperial={weatherData.imperial}
         />
         <SunriseSunset
-          type="Sunset"
+          type={t("sidebar.sunset")}
           time={weatherData.data.sys.sunset}
           imperial={weatherData.imperial}
         />
@@ -42,24 +44,27 @@ function Sidebar({ weatherData, airData }) {
 
       <div className="sidebar__additional-info">
         <AdditionalInfo
-          title="Cloudiness"
+          title={t("sidebar.additional_info.cloudiness")}
           value={weatherData.data.clouds.all}
           units={"%"}
         />
         <AdditionalInfo
-          title="Wind Direction"
+          title={t("sidebar.additional_info.wind_dir")}
           value={weatherData.data.wind.deg}
           units={"\u00b0"}
         />
         <AdditionalInfo
-          title="Air Pollution"
+          title={t("sidebar.additional_info.air_pollution")}
           value={airData.data[0].main.aqi}
           units={"/5"}
         />
         <AdditionalInfo
-          title="Wind Gust"
+          title={t("sidebar.additional_info.wind_gust")}
           value={weatherData.data.wind.gust}
-          units={weatherData.imperial ? " mph" : " m/s"}
+          units={
+            " " +
+            t(`units.speed.${weatherData.imperial ? "imperial" : "metric"}`)
+          }
           icon={Wind}
         />
       </div>

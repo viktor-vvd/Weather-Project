@@ -1,0 +1,46 @@
+{
+  "app_title": "Погода",
+  "header": {
+    "units_switch_title": "Змінити одиниці вимірювання",
+    "actual_weather": "Актуальна погода"
+  },
+  "weather_today": {
+    "details": {
+      "wind": "Вітер",
+      "humidity": "Вологість",
+      "pressure": "Тиск"
+    }
+  },
+  "forecast": {
+    "prev": "Попередній",
+    "next": "Наступний"
+  },
+  "weather_card": {
+    "icon": "Піктограма погоди"
+  },
+  "location": {
+    "more": "Більше"
+  },
+  "sidebar": {
+    "language_switch_title": "Змінити мову",
+    "sunrise": "Схід сонця",
+    "sunset": "Захід сонця",
+    "additional_info": {
+      "cloudiness": "Хмарність",
+      "wind_dir": "Напрямок вітру",
+      "air_pollution": "Забрудненість повітря",
+      "wind_gust": "Порив вітру"
+    }
+  },
+  "units": {
+    "speed": {
+      "imperial": "mph",
+      "metric": "м/с"
+    },
+    "pressure": "гПа"
+  },
+  "date": {
+    "weekday": "{{value, datetime(weekday: long;)}}",
+    "date": "{{value, datetime(day: numeric; month: short; year: numeric;)}}"
+  }
+}

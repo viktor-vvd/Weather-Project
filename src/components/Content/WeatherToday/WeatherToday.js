@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Details from "./Details";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 /* import { useSelector } from "react-redux"; */
 
 const WeatherToday = ({ weatherData }) => {
   /* const units = useSelector((state) => state.units.units); */
-  const [date, setDate] = useState(moment().format("dddd"));
+  const { t } = useTranslation();
   const [time, setTime] = useState(moment());
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setDate(moment().format("dddd"));
       setTime(moment());
     }, 1000);
 
@@ -32,10 +32,15 @@ const WeatherToday = ({ weatherData }) => {
       </div>
       <div className="container_vertical weather-today__date">
         <h3 className="headline date__full-date">
-          {moment().format("Do MMM YY")}
+          {t("date.date", { value: time })}
         </h3>
         <div className="container_horizontal date__time">
-          <span className="headline day">{date}</span>
+          <span className="headline day">{
+            `${t("date.weekday", { value: time }).charAt(0).toUpperCase()}${t(
+              "date.weekday",
+              { value: time }
+            ).slice(1)}` /* date */
+          }</span>
           <span className="headline time">
             {time.format(weatherData.imperial ? "hh:mm A" : "HH:mm")}
           </span>

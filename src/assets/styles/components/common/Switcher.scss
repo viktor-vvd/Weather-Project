@@ -4,6 +4,20 @@
     width: 120rem;
     height: 50rem;
     flex-shrink: 0;
+    overflow: hidden;
+
+    &__container {
+        transition: all .4s ease-in-out;
+        flex-shrink: 0;
+        width: 120rem;
+
+        &.hidden {
+            width: 0px;
+            opacity: 0;
+            margin-left: -20rem;
+            visibility: hidden;
+        }
+    }
 
     &__value {
         position: absolute;
@@ -36,7 +50,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-            background: rgba(214, 214, 214, 0.1);
+        background: rgba(214, 214, 214, 0.1);
         /* background: rgba(255, 255, 255, 0.25); */
         /* backdrop-filter: blur(15rem); */
         transition: all .4s ease-in-out;
@@ -53,7 +67,8 @@
             //box-shadow: 0rem 4rem 10rem rgba(0, 0, 0, 0.2), 0rem 0rem 10rem rgba(0, 0, 0, 0.2);
             border-radius: 40rem;
             /* background: rgba(196, 196, 196, 0.25); */
-            /* background: rgba(150, 150, 150, 0.25); */ //
+            /* background: rgba(150, 150, 150, 0.25); */
+            //
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(15rem);
             transition: all .4s ease-in-out;

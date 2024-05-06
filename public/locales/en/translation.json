@@ -1,0 +1,46 @@
+{
+  "app_title": "Weather",
+  "header": {
+    "units_switch_title": "Change units",
+    "actual_weather": "Actual weather"
+  },
+  "weather_today": {
+    "details": {
+      "wind": "Wind",
+      "humidity": "Humidity",
+      "pressure": "Pressure"
+    }
+  },
+  "forecast": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "weather_card": {
+    "icon": "Weather Icon"
+  },
+  "location": {
+    "more": "More"
+  },
+  "sidebar": {
+    "language_switch_title": "Change language",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "additional_info": {
+      "cloudiness": "Cloudiness",
+      "wind_dir": "Wind Direction",
+      "air_pollution": "Air Pollution",
+      "wind_gust": "Wind Gust"
+    }
+  },
+  "units": {
+    "speed": {
+      "imperial": "mph",
+      "metric": "m/s"
+    },
+    "pressure": "hPa"
+  },
+  "date": {
+    "weekday": "{{value, datetime(weekday: long;)}}",
+    "date": "{{value, datetime(day: numeric; month: short; year: numeric;)}}"
+  }
+}

@@ -1,11 +1,13 @@
 import React from "react";
 import { WiSunrise, WiSunset } from "react-icons/wi";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 /* import { useSelector } from "react-redux"; */
 
 const SunriseSunset = ({ type, time, imperial }) => {
+  const { t } = useTranslation();
   function ShowPic() {
-    if (type === "Sunrise") {
+    if (type === t("sidebar.sunrise")) {
       return <WiSunrise />;
     }
     return <WiSunset />;
@@ -18,21 +20,19 @@ const SunriseSunset = ({ type, time, imperial }) => {
       <h4 className="headline_bold sunrise-sunset__type">{type}</h4>
       <div className="container_vertical sunrise-sunset__card">
         <div className="sunrise-sunset__clock">
-          <span
+          <div
             className="clock__hour"
             style={{
-              transform:
-                "rotate(" + moment.unix(time).format("hh") * 30 + "deg)",
+              transform: `rotate(${moment.unix(time).format("hh") * 30}deg)`,
             }}
-          ></span>
-          <span
+          ></div>
+          <div
             className="clock__minute"
             style={{
-              transform:
-                "rotate(" + moment.unix(time).format("mm") * 6 + "deg)",
+              transform: `rotate(${moment.unix(time).format("mm") * 6}deg)`,
             }}
-          ></span>
-          <span className="clock__dot"></span>
+          ></div>
+          <div className="clock__dot"></div>
         </div>
         <span className="title sunrise-sunset__time">
           {moment.unix(time).format(imperial ? "hh:mm" : "HH:mm")}

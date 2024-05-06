@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeModal } from "../../store/modalSlice";
 import { changeLocation } from "../../store/locationSlice";
 import Cookies from "js-cookie";
-import { fetchGeocodingData } from "../../api";
+import { fetchGeocodingData } from "../../services/api";
 
 const LocationModal = ({ placeholder = "Location" }) => {
   const modal = useSelector((state) => state.modal.modal);
@@ -37,22 +37,19 @@ const LocationModal = ({ placeholder = "Location" }) => {
   return (
     <>
       <div
-        className={
-          "container_vertical location-modal" +
-          (modal ? "" : " location-modal_hidden")
-        }
+        className={`container_vertical location-modal${
+          modal ? "" : " location-modal_hidden"
+        }`}
       >
         <div
-          className={
-            "container_vertical location-modal__bg" +
-            (modal ? "" : " location-modal__bg_hidden")
-          }
+          className={`container_vertical location-modal__bg${
+            modal ? "" : " location-modal__bg_hidden"
+          }`}
         ></div>
         <div
-          className={
-            "container_vertical location-modal__container" +
-            (modal ? "" : " location-modal__container_hidden")
-          }
+          className={`container_vertical location-modal__container${
+            modal ? "" : " location-modal__container_hidden"
+          }`}
         >
           <input
             className="headline location-modal__input"

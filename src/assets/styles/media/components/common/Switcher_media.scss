@@ -16,5 +16,9 @@
     .switcher {
         width: 80rem;
         height: 40rem;
+
+        &__container {
+            width: 80rem;
+        }
     }
 }

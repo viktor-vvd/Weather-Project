@@ -3,6 +3,7 @@ import LeftArrow from "./../../images/LeftArrow.svg";
 import RightArrow from "./../../images/RightArrow.svg";
 import DayInfoCard from "./../common/WeatherCard";
 import { register } from "swiper/element";
+import { useTranslation } from "react-i18next";
 
 const Forecast = ({ forecastData }) => {
   register();
@@ -12,6 +13,7 @@ const Forecast = ({ forecastData }) => {
   const nextRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const { t } = useTranslation();
   register();
 
   useEffect(() => {
@@ -60,13 +62,12 @@ const Forecast = ({ forecastData }) => {
     <div className="container_horizontal forecast">
       <div
         className={
-          "container_horizontal forecast__button" +
-          (isBeginning ? " hidden" : "")
+          `container_horizontal forecast__button${isBeginning ? " hidden" : ""}`
         }
         id="forecast__previous"
         key="previous"
       >
-        <img ref={prevRef} src={LeftArrow} alt="previous" />
+        <img ref={prevRef} src={LeftArrow} alt={t("forecast.prev")} title={t("forecast.prev")} />
       </div>
       <swiper-container class="forecast__slider" init="false" ref={swiperElRef}>
         {forecastData.data &&
@@ -82,12 +83,12 @@ const Forecast = ({ forecastData }) => {
       </swiper-container>
       <div
         className={
-          "container_horizontal forecast__button" + (isEnd ? " hidden" : "")
+          `container_horizontal forecast__button${isEnd ? " hidden" : ""}`
         }
         id="forecast__next"
         key="next"
       >
-        <img ref={nextRef} src={RightArrow} alt="next" />
+        <img ref={nextRef} src={RightArrow} alt={t("forecast.next")} title={t("forecast.next")} />
       </div>
     </div>
   );
