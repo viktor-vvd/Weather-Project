@@ -51,7 +51,6 @@ const App = () => {
 
   useEffect(() => {
     dispatch(setUnits(Cookies.get("units") === "true"));
-    //console.log("u " + units);
     if (Cookies.get("location") !== undefined) {
       dispatch(setLocation(JSON.parse(Cookies.get("location"))));
     } else {
@@ -72,15 +71,11 @@ const App = () => {
     fetchForecastData(location, units, (data) => {
       dispatch(setForecastData(data));
     });
-    // eslint-disable-next-line
-  }, [location, units]);
-
-  useEffect(() => {
     fetchAirData(location, units, (data) => {
       dispatch(setAirData(data));
     });
     // eslint-disable-next-line
-  }, [location]);
+  }, [location, units]);
 
   return (
     weatherData &&
