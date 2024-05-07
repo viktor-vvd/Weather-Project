@@ -4,9 +4,11 @@ import Wind from "./../../images/WindSpeed.svg";
 import AdditionalInfo from "../common/AdditionalInfo";
 import { useTranslation } from "react-i18next";
 import Preferences from "../common/Preferences";
+import { useSelector } from "react-redux";
 
-function Sidebar({ weatherData, airData }) {
+function Sidebar() {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1279);
+  const { weatherData, airData } = useSelector((state) => state.data);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -22,12 +24,7 @@ function Sidebar({ weatherData, airData }) {
   });
   return (
     <div className="container_outer container_vertical sidebar">
-      {isDesktop && (
-        <Preferences
-          city={weatherData.data.name}
-          country={weatherData.data.sys.country}
-        />
-      )}
+      {isDesktop && <Preferences />}
       <div className="container_horizontal sidebar__sunrise-sunset">
         <SunriseSunset
           type={t("sidebar.sunrise")}

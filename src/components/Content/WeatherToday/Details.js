@@ -2,9 +2,17 @@ import React from "react";
 import VerticalLine from "./../../../images/VerticalLine.svg";
 import { WiBarometer, WiWindDeg, WiHumidity } from "react-icons/wi";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 /* import { useSelector } from "react-redux"; */
 
-const Details = ({ wind, humidity, pressure, imperial }) => {
+const Details = () => {
+  const { weatherData } = useSelector((state) => state.data);
+  const [wind, humidity, pressure, imperial] = [
+    weatherData.data.wind.speed,
+    weatherData.data.main.humidity,
+    weatherData.data.main.pressure,
+    weatherData.imperial,
+  ];
   const { t } = useTranslation();
 
   return (
@@ -32,13 +40,9 @@ const Details = ({ wind, humidity, pressure, imperial }) => {
       <div className="container_horizontal details__item">
         <div className="container_horizontal details__title">
           <WiBarometer />
-          <span className="text">
-            {t("weather_today.details.pressure")}
-          </span>
+          <span className="text">{t("weather_today.details.pressure")}</span>
         </div>
-        <span className="text">{`${pressure} ${t(
-          "units.pressure"
-        )}`}</span>
+        <span className="text">{`${pressure} ${t("units.pressure")}`}</span>
       </div>
     </div>
   );

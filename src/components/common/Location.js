@@ -2,12 +2,13 @@ import React from "react";
 import Geolocation from "./../../images/Geolocation.svg";
 import More from "./../../images/More.svg";
 import LocationModal from "../modals/LocationModal";
-import { changeModal } from "../../store/modalSlice";
+import { setModal } from "../../store/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-const Location = ({ city, country }) => {
+const Location = () => {
   const modal = useSelector((state) => state.modal.modal);
+  const { weatherData } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
@@ -26,17 +27,17 @@ const Location = ({ city, country }) => {
           height="32px"
         />
         <span className="headline">
-          {`${city || "Lutsk"}, ${country || "UA"}`}
+          {`${weatherData.data.name || "Lutsk"}, ${weatherData.data.sys.country || "UA"}`}
         </span>
       </div>
       <div
         title={modal ? "Close" : "Select location"}
         className={`location__button${modal ? " location__button_close" : ""}`}
-        onClick={() => dispatch(changeModal(!modal))}
+        onClick={() => dispatch(setModal(!modal))}
       >
         <img src={More} alt={t("location.more")} width="35px" height="35px" />
       </div>
-      <LocationModal placeholder={`${city || "Lutsk"}, ${country || "UA"}`} />
+      <LocationModal />
     </div>
   );
 };

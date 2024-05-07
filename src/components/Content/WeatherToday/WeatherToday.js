@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Details from "./Details";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-/* import { useSelector } from "react-redux"; */
+import { useSelector } from "react-redux";
 
-const WeatherToday = ({ weatherData }) => {
-  /* const units = useSelector((state) => state.units.units); */
+const WeatherToday = () => {
+  const { weatherData } = useSelector((state) => state.data);
   const { t } = useTranslation();
   const [time, setTime] = useState(moment());
 
@@ -39,19 +39,14 @@ const WeatherToday = ({ weatherData }) => {
             `${t("date.weekday", { value: time }).charAt(0).toUpperCase()}${t(
               "date.weekday",
               { value: time }
-            ).slice(1)}` /* date */
+            ).slice(1)}`
           }</span>
           <span className="headline time">
             {time.format(weatherData.imperial ? "hh:mm A" : "HH:mm")}
           </span>
         </div>
       </div>
-      <Details
-        wind={weatherData.data.wind.speed}
-        humidity={weatherData.data.main.humidity}
-        pressure={weatherData.data.main.pressure}
-        imperial={weatherData.imperial}
-      />
+      <Details />
     </div>
   );
 };

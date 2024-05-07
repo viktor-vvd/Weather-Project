@@ -4,8 +4,9 @@ import RightArrow from "./../../images/RightArrow.svg";
 import DayInfoCard from "./../common/WeatherCard";
 import { register } from "swiper/element";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 
-const Forecast = ({ forecastData }) => {
+const Forecast = () => {
   register();
 
   const swiperElRef = useRef(null);
@@ -13,6 +14,7 @@ const Forecast = ({ forecastData }) => {
   const nextRef = useRef(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const { forecastData } = useSelector((state) => state.data);
   const { t } = useTranslation();
   register();
 

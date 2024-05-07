@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./assets/styles/index.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Content from "./components/Content/Content";
 import Sidebar from "./components/Sidebar/Sidebar";
 //import { testAirData, testForecastData, testWeatherData } from "./testData";
 import Cookies from "js-cookie";
-import { changeUnits } from "./store/unitsSlice";
-import { changeLocation } from "./store/locationSlice";
+import { setUnits } from "./store/unitsSlice";
+import { setLocation } from "./store/locationSlice";
 import {
   fetchAirData,
   fetchForecastData,
   fetchWeatherData,
 } from "./services/api";
 import useLocalizeDocumentAttributes from "./localization/useLocalizeDocumentAttributes";
+import { setAirData, setForecastData, setWeatherData } from "./store/dataSlice";
 
 const App = () => {
   // eslint-disable-next-line
@@ -27,31 +28,35 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  const [weatherData, setWeatherData] =
-    useState(/* {
-    data: testWeatherData,
-    imperial: units,
-  } */);
-  const [forecastData, setForecast] =
-    useState(/* {
-    data: testForecastData,
-    imperial: units,
-  } */);
-  /*   const [units, setUnits] = useState(false);*/
-  const [airData, setAirData] =
-    useState(/* {
-    data: testAirData,
-    imperial: units,
-  } */);
+  const { weatherData, forecastData, airData } = useSelector(
+    (state) => state.data
+  );
+
+  // const [weatherData, setWeatherData] =
+  //   useState(/* {
+  //   data: testWeatherData,
+  //   imperial: units,
+  // } */);
+  // const [forecastData, setForecast] =
+  //   useState(/* {
+  //   data: testForecastData,
+  //   imperial: units,
+  // } */);
+  // /*   const [units, setUnits] = useState(false);*/
+  // const [airData, setAirData] =
+  //   useState(/* {
+  //   data: testAirData,
+  //   imperial: units,
+  // } */);
 
   useEffect(() => {
-    dispatch(changeUnits(Cookies.get("units") === "true"));
+    dispatch(setUnits(Cookies.get("units") === "true"));
     //console.log("u " + units);
     if (Cookies.get("location") !== undefined) {
-      dispatch(changeLocation(JSON.parse(Cookies.get("location"))));
+      dispatch(setLocation(JSON.parse(Cookies.get("location"))));
     } else {
       dispatch(
-        changeLocation({
+        setLocation({
           lat: 50.7450733,
           lon: 25.320078,
         })
@@ -61,12 +66,19 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    fetchWeatherData(location, units, setWeatherData);
-    fetchForecastData(location, units, setForecast);
+    fetchWeatherData(location, units, (data) => {
+      dispatch(setWeatherData(data));
+    });
+    fetchForecastData(location, units, (data) => {
+      dispatch(setForecastData(data));
+    });
+    // eslint-disable-next-line
   }, [location, units]);
 
   useEffect(() => {
-    fetchAirData(location, units, setAirData);
+    fetchAirData(location, units, (data) => {
+      dispatch(setAirData(data));
+    });
     // eslint-disable-next-line
   }, [location]);
 
@@ -75,8 +87,8 @@ const App = () => {
     forecastData &&
     airData && (
       <main className="container_horizontal main">
-        <Content weatherData={weatherData} forecastData={forecastData} />
-        <Sidebar weatherData={weatherData} airData={airData} />
+        <Content />
+        <Sidebar />
       </main>
     )
   );

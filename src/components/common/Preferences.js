@@ -1,11 +1,11 @@
 import React from "react";
 import Switcher from "./Switcher";
 import { useTranslation } from "react-i18next";
-import Location from "../Sidebar/Location";
+import Location from "./Location";
 import { useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
-const Preferences = ({ city, country }) => {
+const Preferences = () => {
   const { t, i18n } = useTranslation();
   const modal = useSelector((state) => state.modal.modal);
   const activeLocale = i18n.resolvedLanguage;
@@ -22,7 +22,7 @@ const Preferences = ({ city, country }) => {
 
   return (
     <div className="container_horizontal preferences">
-      <Location city={city} country={country} />
+      <Location />
       <Switcher
         className={modal ? " hidden" : ""}
         sourceValue={activeLocale === "uk"}

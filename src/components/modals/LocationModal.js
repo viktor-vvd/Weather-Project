@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeModal } from "../../store/modalSlice";
-import { changeLocation } from "../../store/locationSlice";
+import { setModal } from "../../store/modalSlice";
+import { setLocation } from "../../store/locationSlice";
 import Cookies from "js-cookie";
 import { fetchGeocodingData } from "../../services/api";
 
-const LocationModal = ({ placeholder = "Location" }) => {
+const LocationModal = () => {
   const modal = useSelector((state) => state.modal.modal);
+  const { weatherData } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const [inputValue, setInputValue] = useState("");
@@ -24,9 +25,9 @@ const LocationModal = ({ placeholder = "Location" }) => {
 
   const onLocationItemClick = (item) => {
     //console.log(item);
-    dispatch(changeLocation(item));
+    dispatch(setLocation(item));
     Cookies.set("location", JSON.stringify(item));
-    dispatch(changeModal(!modal));
+    dispatch(setModal(!modal));
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const LocationModal = ({ placeholder = "Location" }) => {
             name="password"
             type="text"
             value={inputValue}
-            placeholder={placeholder}
+            placeholder={`${weatherData.data.name || "Lutsk"}, ${weatherData.data.sys.country || "UA"}`}
             onChange={(e) => onInputChange(e.target.value)}
           />
           {matches && matches.length > 0 && (

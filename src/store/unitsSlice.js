@@ -6,7 +6,7 @@ const unitsSlice = createSlice({
     units: null,
   },
   reducers: {
-    changeUnits(state, action) {
+    setUnits(state, action) {
       /* console.log(state);
       console.log(action); */
       state.units = action.payload;
@@ -14,6 +14,6 @@ const unitsSlice = createSlice({
   },
 });
 
-export const { changeUnits } = unitsSlice.actions;
+export const { setUnits } = unitsSlice.actions;
 
 export default unitsSlice.reducer;

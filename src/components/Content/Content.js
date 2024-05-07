@@ -5,17 +5,18 @@ import Forecast from "./Forecast";
 import { useTranslation } from "react-i18next";
 import Preferences from "../common/Preferences";
 import { useDispatch, useSelector } from "react-redux";
-import { changeUnits } from "../../store/unitsSlice";
+import { setUnits } from "../../store/unitsSlice";
 import Cookies from "js-cookie";
 
-const Content = ({ weatherData, forecastData }) => {
+const Content = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1279);
   const { t } = useTranslation();
   const units = useSelector((state) => state.units.units);
+  const {weatherData } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const unitsChange = () => {
-    dispatch(changeUnits(!units));
+    dispatch(setUnits(!units));
     Cookies.set("units", !units);
   };
 
@@ -34,10 +35,7 @@ const Content = ({ weatherData, forecastData }) => {
   return (
     <section className="container_outer container_vertical content">
       {!isDesktop && (
-        <Preferences
-          city={weatherData.data.name}
-          country={weatherData.data.sys.country}
-        />
+        <Preferences />
       )}
       <div className="container_horizontal content_header">
         <img
@@ -55,8 +53,8 @@ const Content = ({ weatherData, forecastData }) => {
           title={t("header.units_switch_title")}
         />
       </div>
-      <WeatherToday weatherData={weatherData} />
-      <Forecast forecastData={forecastData} />
+      <WeatherToday />
+      <Forecast />
     </section>
   );
 };

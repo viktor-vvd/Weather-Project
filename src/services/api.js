@@ -23,7 +23,7 @@ const fetchWeatherData = async (location, units, setWeatherData) => {
   }
 };
 
-const fetchForecastData = async (location, units, setForecast) => {
+const fetchForecastData = async (location, units, setForecastData) => {
   if (units !== null && location !== null) {
     try {
       await fetch(
@@ -35,7 +35,7 @@ const fetchForecastData = async (location, units, setForecast) => {
       )
         .then((res) => res.json())
         .then((result) => {
-          setForecast({ data: result.list, imperial: units });
+          setForecastData({ data: result.list, imperial: units });
           //console.log(result.list);
         });
     } catch (err) {
