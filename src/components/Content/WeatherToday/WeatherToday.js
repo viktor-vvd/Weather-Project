@@ -24,7 +24,7 @@ const WeatherToday = () => {
           {Math.round(weatherData.data.main.temp)}
         </h3>
         <div className="container_horizontal temp__units">
-          <span className="headline units__degree">o</span>
+          <span className="headline units__degree">{"\u00b0"}</span>
           <span className="headline units__symbol">
             {weatherData.imperial ? "F" : "C"}
           </span>
