@@ -1,5 +1,6 @@
 {
   "app_title": "Weather",
+  "app_title_loc": "Weather Forecast in {{location}}",
   "header": {
     "units_switch_title": "Change units",
     "actual_weather": "Actual weather"

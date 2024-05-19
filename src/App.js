@@ -14,6 +14,7 @@ import {
 } from "./services/api";
 import useLocalizeDocumentAttributes from "./localization/useLocalizeDocumentAttributes";
 import { setAirData, setForecastData, setWeatherData } from "./store/dataSlice";
+import useMetaTags from "./localization/useMetaTags";
 
 const App = () => {
   // eslint-disable-next-line
@@ -22,6 +23,7 @@ const App = () => {
   //const [long, setLong] = useState(25.3054);
 
   useLocalizeDocumentAttributes();
+  useMetaTags();
 
   const location = useSelector((state) => state.location.location);
   const units = useSelector((state) => state.units.units);

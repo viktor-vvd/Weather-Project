@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import LeftArrow from "./../../images/LeftArrow.svg";
 import RightArrow from "./../../images/RightArrow.svg";
-import DayInfoCard from "./../common/WeatherCard";
+import WeatherCard from "./../common/WeatherCard";
 import { register } from "swiper/element";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -74,7 +74,7 @@ const Forecast = () => {
       <swiper-container class="forecast__slider" init="false" ref={swiperElRef}>
         {forecastData.data &&
           forecastData.data.map((item, index) => (
-            <DayInfoCard
+            <WeatherCard
               key={index}
               tempValue={item.main.temp}
               icon={item.weather[0].icon}
