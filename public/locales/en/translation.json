@@ -1,6 +1,10 @@
 {
-  "app_title": "Weather",
-  "app_title_loc": "Weather Forecast in {{location}}",
+  "meta":{
+    "app_title": "Weather Forecast",
+    "app_title_loc": "Weather Forecast in {{location}}",
+    "app_description": "Weather Forecast App by viktor_vvd",
+    "app_description_loc": "Weather Forecast in {{location}}. App by viktor_vvd"
+  },
   "header": {
     "units_switch_title": "Change units",
     "actual_weather": "Actual weather"

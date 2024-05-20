@@ -14,7 +14,7 @@ import {
 } from "./services/api";
 import useLocalizeDocumentAttributes from "./localization/useLocalizeDocumentAttributes";
 import { setAirData, setForecastData, setWeatherData } from "./store/dataSlice";
-import useMetaTags from "./localization/useMetaTags";
+import MetaTags from "./seo/MetaTags";
 
 const App = () => {
   // eslint-disable-next-line
@@ -23,7 +23,6 @@ const App = () => {
   //const [long, setLong] = useState(25.3054);
 
   useLocalizeDocumentAttributes();
-  useMetaTags();
 
   const location = useSelector((state) => state.location.location);
   const units = useSelector((state) => state.units.units);
@@ -80,14 +79,15 @@ const App = () => {
   }, [location, units]);
 
   return (
-    weatherData &&
-    forecastData &&
-    airData && (
-      <main className="container_horizontal main">
-        <Content />
-        <Sidebar />
-      </main>
-    )
+    <main className="container_horizontal main">
+      <MetaTags />
+      {weatherData && forecastData && airData && (
+        <>
+          <Content />
+          <Sidebar />
+        </>
+      )}
+    </main>
   );
 };
 
