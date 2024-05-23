@@ -24,7 +24,6 @@ const LocationModal = () => {
   };
 
   const onLocationItemClick = (item) => {
-    //console.log(item);
     dispatch(setLocation(item));
     Cookies.set("location", JSON.stringify(item));
     dispatch(setModal(!modal));

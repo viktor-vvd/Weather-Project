@@ -5,8 +5,10 @@ const locationSlice = createSlice({
   initialState: {
     location: {
       name: "Lutsk",
+      lat: 50.7450733,
+      lon: 25.320078,
+      country: "UA",
       state: "Volyn Oblast",
-      country: "UA"
     },
   },
   reducers: {

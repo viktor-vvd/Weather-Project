@@ -54,13 +54,6 @@ const App = () => {
     dispatch(setUnits(Cookies.get("units") === "true"));
     if (Cookies.get("location") !== undefined) {
       dispatch(setLocation(JSON.parse(Cookies.get("location"))));
-    } else {
-      dispatch(
-        setLocation({
-          lat: 50.7450733,
-          lon: 25.320078,
-        })
-      );
     }
     // eslint-disable-next-line
   }, []);
