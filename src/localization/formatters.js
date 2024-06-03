@@ -5,7 +5,7 @@ function qualifiedLngFor(lng) {
     case "en":
       return "en-US";
     default:
-      return lng;
+      return "en";
   }
 }
 
